@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsi1qy44c4iir"]
+
+[ext_resource type="Script" path="res://server/match.gd" id="1_g2mmy"]
+[ext_resource type="Resource" uid="uid://d3nvgpp3ghcwk" path="res://server/library/standard_library.tres" id="2_xdyvg"]
+
+[node name="match" type="Node"]
+script = ExtResource( "1_g2mmy" )
+library = ExtResource( "2_xdyvg" )

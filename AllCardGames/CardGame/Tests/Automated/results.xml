@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<testsuites failures="0" name="TestXML" tests="2" time="4.527">
+	<testsuite name="Connection" failures="0"  tests="2" time="0">
+		<testcase name="ServerIsLive" time="0"></testcase>
+		<testcase name="ClientIsConnected" time="0"></testcase>
+	</testsuite>
+
+	<testsuite name="BasicTest" failures="0"  tests="1" time="0">
+		<testcase name="TestMethod" time="0"></testcase>
+	</testsuite>
+
+</testsuites>

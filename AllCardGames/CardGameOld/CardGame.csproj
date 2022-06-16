@@ -1,0 +1,35 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Client\Card\**" />
+    <Compile Remove="Client\Screens\MainMenu\**" />
+    <Compile Remove="Server\Library\Cards\**" />
+    <Compile Remove="Client\Screens\Match\**" />
+    <Compile Remove="Client\Network\**" />
+    <Compile Remove="Client\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Server\**" />
+    <Compile Remove="User\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Client\Card\**" />
+    <EmbeddedResource Remove="Client\Screens\MainMenu\**" />
+    <EmbeddedResource Remove="Server\Library\Cards\**" />
+    <EmbeddedResource Remove="Client\Screens\Match\**" />
+    <EmbeddedResource Remove="Client\Network\**" />
+    <EmbeddedResource Remove="Client\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Server\**" />
+    <EmbeddedResource Remove="User\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Source\Client\CardLibrary\Library.json" />
+  </ItemGroup>
+</Project>

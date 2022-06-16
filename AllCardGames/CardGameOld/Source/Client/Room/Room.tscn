@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Source/Client/Room/Room.cs" type="Script" id=2]
+[ext_resource path="res://Source/Client/Room/Participant.cs" type="Script" id=3]
+[ext_resource path="res://Assets/Models/Table/Table.tscn" type="PackedScene" id=5]
+
+[node name="Room" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Table" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 4, 4, 4.25 )
+environment = ExtResource( 1 )
+current = true
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 2.5 )
+light_specular = 0.0
+light_bake_mode = 2
+shadow_bias = 0.6
+omni_range = 10.0
+omni_shadow_detail = 0
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="DeckHint" type="Position3D" parent="Player"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 7.5, 0.003, 4.5 )
+
+[node name="DiscardHint" type="Position3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.003, 3.5 )
+
+[node name="HandHint" type="Position3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, 4.295, 0.5, 5 )
+visible = false
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="UnitsHint" type="Position3D" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.003, 3.5 )
+
+[node name="SupportsHint" type="Position3D" parent="Player"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.5, 0.003, 4.5 )
+
+[node name="Rival" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="DeckHint" type="Position3D" parent="Rival"]
+transform = Transform( 1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.64274e-15, -1, 0.5, 0.003, 0.5 )
+
+[node name="DiscardHint" type="Position3D" parent="Rival"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0.003, 1.5 )
+
+[node name="HandHint" type="Position3D" parent="Rival"]
+transform = Transform( -1, 8.60947e-08, 1.51808e-08, 0, 0.173648, -0.984808, -8.74228e-08, -0.984808, -0.173648, 3.705, 0.5, 0 )
+visible = false
+
+[node name="UnitsHint" type="Position3D" parent="Rival"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0.003, 1.5 )
+
+[node name="SupportsHint" type="Position3D" parent="Rival"]
+transform = Transform( 1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.64274e-15, -1, 7.5, 0.003, 0.5 )
+
+[node name="Origin" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2.5 )

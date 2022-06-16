@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Client/MainMenu/MainMenu.cs" type="Script" id=1]
+
+[node name="MainMenu" type="HBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+margin_right = 384.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Play"
+
+[node name="DeckEditor" type="Button" parent="."]
+margin_left = 384.0
+margin_right = 768.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Deck Editor"
+
+[node name="UserProfile" type="Button" parent="."]
+margin_left = 768.0
+margin_right = 1152.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "User Profile"
+
+[node name="Settings" type="Button" parent="."]
+margin_left = 1152.0
+margin_right = 1536.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Settings"
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 1536.0
+margin_right = 1920.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Quit"

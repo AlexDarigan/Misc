@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Server/Network.cs" type="Script" id=1]
+[ext_resource path="res://Common/LocalHost.tres" type="Resource" id=2]
+[ext_resource path="res://Common/PlainTextLogger.tres" type="Resource" id=3]
+[ext_resource path="res://Server/TableFactory.tres" type="Resource" id=4]
+
+[node name="Server" type="Node"]
+script = ExtResource( 1 )
+NetworkConfig = ExtResource( 2 )
+Logger = ExtResource( 3 )
+TableFactory = ExtResource( 4 )

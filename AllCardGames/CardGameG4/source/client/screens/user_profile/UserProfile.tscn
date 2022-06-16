@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://tlyp5q4mw8qj"]
+
+[ext_resource type="Script" path="res://source/client/screens/user_profile/user_profile.gd" id="1_bm0ua"]
+
+[node name="UserProfile" type="Control"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource( "1_bm0ua" )

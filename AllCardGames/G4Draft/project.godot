@@ -1,0 +1,157 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Event",
+"class": &"Activation",
+"language": &"GDScript",
+"path": "res://server/events/activation.gd"
+}, {
+"base": "Event",
+"class": &"AttackPlayer",
+"language": &"GDScript",
+"path": "res://server/events/attack_player.gd"
+}, {
+"base": "Event",
+"class": &"AttackUnit",
+"language": &"GDScript",
+"path": "res://server/events/attack_unit.gd"
+}, {
+"base": "Node",
+"class": &"Card",
+"language": &"GDScript",
+"path": "res://server/card/card.gd"
+}, {
+"base": "Resource",
+"class": &"CardData",
+"language": &"GDScript",
+"path": "res://server/card/carddata.gd"
+}, {
+"base": "Resource",
+"class": &"CardType",
+"language": &"GDScript",
+"path": "res://server/card/cardtype.gd"
+}, {
+"base": "MoveEvent",
+"class": &"Deploy",
+"language": &"GDScript",
+"path": "res://server/events/move_events/deploy.gd"
+}, {
+"base": "MoveEvent",
+"class": &"Draw",
+"language": &"GDScript",
+"path": "res://server/events/move_events/draw.gd"
+}, {
+"base": "Event",
+"class": &"EndTurn",
+"language": &"GDScript",
+"path": "res://server/events/end_turn.gd"
+}, {
+"base": "Node",
+"class": &"Event",
+"language": &"GDScript",
+"path": "res://server/events/event.gd"
+}, {
+"base": "Resource",
+"class": &"Faction",
+"language": &"GDScript",
+"path": "res://server/card/faction.gd"
+}, {
+"base": "Node",
+"class": &"Fixture",
+"language": &"GDScript",
+"path": "res://tests/fixture.gd"
+}, {
+"base": "Node",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://server/match.gd"
+}, {
+"base": "Event",
+"class": &"GameOver",
+"language": &"GDScript",
+"path": "res://server/events/game_over.gd"
+}, {
+"base": "Node",
+"class": &"Judge",
+"language": &"GDScript",
+"path": "res://server/judge.gd"
+}, {
+"base": "Event",
+"class": &"LoadDeck",
+"language": &"GDScript",
+"path": "res://server/events/load_deck.gd"
+}, {
+"base": "Event",
+"class": &"MoveEvent",
+"language": &"GDScript",
+"path": "res://server/events/move_events/move_event.gd"
+}, {
+"base": "Node",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://server/player.gd"
+}, {
+"base": "Event",
+"class": &"Resolve",
+"language": &"GDScript",
+"path": "res://server/events/resolve.gd"
+}, {
+"base": "MoveEvent",
+"class": &"SentToGraveyard",
+"language": &"GDScript",
+"path": "res://server/events/move_events/sent_to_graveyard.gd"
+}, {
+"base": "Resource",
+"class": &"ServerLibrary",
+"language": &"GDScript",
+"path": "res://server/library/library.gd"
+}, {
+"base": "MoveEvent",
+"class": &"SetFaceDown",
+"language": &"GDScript",
+"path": "res://server/events/move_events/set_facedown.gd"
+}, {
+"base": "Event",
+"class": &"SetHealth",
+"language": &"GDScript",
+"path": "res://server/events/set_health.gd"
+}]
+_global_script_class_icons={
+"Activation": "",
+"AttackPlayer": "",
+"AttackUnit": "",
+"Card": "",
+"CardData": "",
+"CardType": "",
+"Deploy": "",
+"Draw": "",
+"EndTurn": "",
+"Event": "",
+"Faction": "",
+"Fixture": "",
+"Game": "",
+"GameOver": "",
+"Judge": "",
+"LoadDeck": "",
+"MoveEvent": "",
+"Player": "",
+"Resolve": "",
+"SentToGraveyard": "",
+"ServerLibrary": "",
+"SetFaceDown": "",
+"SetHealth": ""
+}
+
+[application]
+
+config/name="G4Draft"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")

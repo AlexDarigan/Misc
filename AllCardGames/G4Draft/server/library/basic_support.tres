@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://diwvrtrxuohgc"]
+
+[ext_resource type="Script" path="res://server/card/carddata.gd" id="1_42ewe"]
+[ext_resource type="PackedScene" uid="uid://bf0dqoorngqb0" path="res://server/DefaultCard.tscn" id="1_58dyk"]
+[ext_resource type="Resource" path="res://server/card/support.tres" id="1_pegs1"]
+[ext_resource type="Resource" path="res://server/card/nullfaction.tres" id="2_x0kj3"]
+
+[resource]
+script = ExtResource( "1_42ewe" )
+title = "Basic Support"
+power = 0
+setcode = "2"
+card_type = ExtResource( "1_pegs1" )
+faction = ExtResource( "2_x0kj3" )
+ServerScene = ExtResource( "1_58dyk" )

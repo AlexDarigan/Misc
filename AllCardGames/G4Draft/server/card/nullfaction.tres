@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dlph74420a4di"]
+
+[ext_resource type="Script" path="res://server/card/faction.gd" id="1_slosa"]
+
+[resource]
+script = ExtResource( "1_slosa" )
+card_type = null

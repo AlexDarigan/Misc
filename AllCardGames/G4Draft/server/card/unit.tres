@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dy6h8c5loo7nk"]
+
+[ext_resource type="Script" path="res://server/card/cardtype.gd" id="1_heqqc"]
+
+[resource]
+script = ExtResource( "1_heqqc" )
+card_type = null

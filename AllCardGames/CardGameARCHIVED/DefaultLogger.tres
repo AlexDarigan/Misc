@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Logger.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+PrintToConsole = false
+LogText = "Hosting
+Joining
+Joining
+1482260674 : Connected to the Server
+763039219 : Connected to the Server
+1482260674 connected
+763039219 connected
+1482260674 : Created Room 0
+763039219 : Created Room 0
+"

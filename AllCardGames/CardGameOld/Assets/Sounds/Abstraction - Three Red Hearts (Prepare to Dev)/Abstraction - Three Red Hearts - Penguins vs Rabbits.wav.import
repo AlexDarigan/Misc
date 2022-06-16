@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Abstraction - Three Red Hearts - Penguins vs Rabbits.wav-cf0c597d1ad2a69edcc26687e37b7d06.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Abstraction - Three Red Hearts (Prepare to Dev)/Abstraction - Three Red Hearts - Penguins vs Rabbits.wav"
+dest_files=[ "res://.import/Abstraction - Three Red Hearts - Penguins vs Rabbits.wav-cf0c597d1ad2a69edcc26687e37b7d06.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

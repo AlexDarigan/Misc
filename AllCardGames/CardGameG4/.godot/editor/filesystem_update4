@@ -1,0 +1,6 @@
+res://Main.tscn
+res://assets/models/card_back.tres
+res://source/client/room/Room.tscn
+res://source/client/room/card/Card.tscn
+res://source/client/room/room.gd
+res://source/server/Server.tscn

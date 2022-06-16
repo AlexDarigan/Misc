@@ -1,0 +1,290 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "GameEvent",
+"class": &"ActivationEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/activation.gd"
+}, {
+"base": "RefCounted",
+"class": &"AssertionResult",
+"language": &"GDScript",
+"path": "res://addons/wat/assertion_result.gd"
+}, {
+"base": "RefCounted",
+"class": &"Assertions",
+"language": &"GDScript",
+"path": "res://addons/wat/assertions.gd"
+}, {
+"base": "GameEvent",
+"class": &"AttackPlayerEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/attack_player.gd"
+}, {
+"base": "GameEvent",
+"class": &"AttackUnitEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/attack_unit.gd"
+}, {
+"base": "RefCounted",
+"class": &"Bytecode",
+"language": &"GDScript",
+"path": "res://source/server/bytecode/op_codes.gd"
+}, {
+"base": "RefCounted",
+"class": &"CardEffect",
+"language": &"GDScript",
+"path": "res://source/server/skill.gd"
+}, {
+"base": "Node",
+"class": &"Cards",
+"language": &"GDScript",
+"path": "res://source/client/room/cards.gd"
+}, {
+"base": "Node3D",
+"class": &"ClientCard",
+"language": &"GDScript",
+"path": "res://source/client/room/card/card.gd"
+}, {
+"base": "Node",
+"class": &"ClientMessenger",
+"language": &"GDScript",
+"path": "res://source/client/network/network_messenger.gd"
+}, {
+"base": "Window",
+"class": &"ClientRoom",
+"language": &"GDScript",
+"path": "res://source/client/room/room.gd"
+}, {
+"base": "RefCounted",
+"class": &"Command",
+"language": &"GDScript",
+"path": "res://source/client/room/commands/command.gd"
+}, {
+"base": "Node",
+"class": &"CommandQueue",
+"language": &"GDScript",
+"path": "res://source/client/room/command_queue.gd"
+}, {
+"base": "Resource",
+"class": &"DeckList",
+"language": &"GDScript",
+"path": "res://source/client/resources/decklist.gd"
+}, {
+"base": "MoveGameEvent",
+"class": &"DeployEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/movement/deploy.gd"
+}, {
+"base": "MoveGameEvent",
+"class": &"DrawEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/movement/draw.gd"
+}, {
+"base": "RefCounted",
+"class": &"EffectState",
+"language": &"GDScript",
+"path": "res://source/server/effect_state.gd"
+}, {
+"base": "Node",
+"class": &"Effects",
+"language": &"GDScript",
+"path": "res://source/client/room/effects.gd"
+}, {
+"base": "GameEvent",
+"class": &"EndTurnEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/end_turn.gd"
+}, {
+"base": "Object",
+"class": &"Enums",
+"language": &"GDScript",
+"path": "res://source/common/enums.gd"
+}, {
+"base": "Test",
+"class": &"Fixture",
+"language": &"GDScript",
+"path": "res://tests/fixture.gd"
+}, {
+"base": "RefCounted",
+"class": &"GameEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/game_event.gd"
+}, {
+"base": "GameEvent",
+"class": &"GameOverEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/game_over.gd"
+}, {
+"base": "GameEvent",
+"class": &"LoadDeckEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/load_deck.gd"
+}, {
+"base": "RefCounted",
+"class": &"MatchMaker",
+"language": &"GDScript",
+"path": "res://source/server/matchmaking.gd"
+}, {
+"base": "GameEvent",
+"class": &"MoveGameEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/movement/move_game_event.gd"
+}, {
+"base": "MultiplayerAPI",
+"class": &"Multiplayer",
+"language": &"GDScript",
+"path": "res://source/network/multiplayer.gd"
+}, {
+"base": "Node",
+"class": &"Participant",
+"language": &"GDScript",
+"path": "res://source/client/room/participant.gd"
+}, {
+"base": "GameEvent",
+"class": &"ResolveEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/resolve.gd"
+}, {
+"base": "MoveGameEvent",
+"class": &"SentToGraveyardEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/movement/sent_to_graveyard.gd"
+}, {
+"base": "RefCounted",
+"class": &"ServerCard",
+"language": &"GDScript",
+"path": "res://source/server/card.gd"
+}, {
+"base": "RefCounted",
+"class": &"ServerMatch",
+"language": &"GDScript",
+"path": "res://source/server/match.gd"
+}, {
+"base": "RefCounted",
+"class": &"ServerPlayer",
+"language": &"GDScript",
+"path": "res://source/server/player.gd"
+}, {
+"base": "Node",
+"class": &"ServerRoom",
+"language": &"GDScript",
+"path": "res://source/server/room.gd"
+}, {
+"base": "MoveGameEvent",
+"class": &"SetFacedownEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/movement/set_facedown.gd"
+}, {
+"base": "GameEvent",
+"class": &"SetHealthEvent",
+"language": &"GDScript",
+"path": "res://source/server/events/set_health.gd"
+}, {
+"base": "Node3D",
+"class": &"Table",
+"language": &"GDScript",
+"path": "res://source/client/room/table/table.gd"
+}, {
+"base": "Node",
+"class": &"Test",
+"language": &"GDScript",
+"path": "res://addons/wat/test_suite.gd"
+}, {
+"base": "RefCounted",
+"class": &"TestCollector",
+"language": &"GDScript",
+"path": "res://addons/wat/test_collector.gd"
+}, {
+"base": "RefCounted",
+"class": &"TestResult",
+"language": &"GDScript",
+"path": "res://addons/wat/test_result.gd"
+}, {
+"base": "Node",
+"class": &"TestRunner",
+"language": &"GDScript",
+"path": "res://addons/wat/test_runner.gd"
+}, {
+"base": "Resource",
+"class": &"User",
+"language": &"GDScript",
+"path": "res://source/client/resources/user.gd"
+}, {
+"base": "Node",
+"class": &"Zone",
+"language": &"GDScript",
+"path": "res://source/client/room/zone.gd"
+}]
+_global_script_class_icons={
+"ActivationEvent": "",
+"AssertionResult": "",
+"Assertions": "",
+"AttackPlayerEvent": "",
+"AttackUnitEvent": "",
+"Bytecode": "",
+"CardEffect": "",
+"Cards": "",
+"ClientCard": "",
+"ClientMessenger": "",
+"ClientRoom": "",
+"Command": "",
+"CommandQueue": "",
+"DeckList": "",
+"DeployEvent": "",
+"DrawEvent": "",
+"EffectState": "",
+"Effects": "",
+"EndTurnEvent": "",
+"Enums": "",
+"Fixture": "",
+"GameEvent": "",
+"GameOverEvent": "",
+"LoadDeckEvent": "",
+"MatchMaker": "",
+"MoveGameEvent": "",
+"Multiplayer": "",
+"Participant": "",
+"ResolveEvent": "",
+"SentToGraveyardEvent": "",
+"ServerCard": "",
+"ServerMatch": "",
+"ServerPlayer": "",
+"ServerRoom": "",
+"SetFacedownEvent": "",
+"SetHealthEvent": "",
+"Table": "",
+"Test": "",
+"TestCollector": "",
+"TestResult": "",
+"TestRunner": "",
+"User": "",
+"Zone": ""
+}
+
+[application]
+
+config/name="CardGame4WithTests"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+
+[autoload]
+
+Debug="*res://source/common/debug.gd"
+ServerLibrary="*res://source/server/card_library/library.gd"
+VirtualMachine="*res://source/server/bytecode/virtual_machine.gd"
+ClientLibrary="*res://source/client/card_library/library.gd"
+
+[layer_names]
+
+3d_render/layer_1="Room 1"
+3d_render/layer_2="Room 2"

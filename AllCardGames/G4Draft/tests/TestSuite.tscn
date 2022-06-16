@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1pojnjxdsqwc"]
+
+[ext_resource type="Script" path="res://tests/battle.gd" id="1_k4o36"]
+[ext_resource type="PackedScene" uid="uid://dsi1qy44c4iir" path="res://server/match.tscn" id="2_82572"]
+
+[node name="Runner" type="Node"]
+script = ExtResource( "1_k4o36" )
+matchscene = ExtResource( "2_82572" )
+
+[node name="Battle" type="Node" parent="."]
+
+[node name="CardState" type="Node" parent="."]
+
+[node name="Conclusion" type="Node" parent="."]
+
+[node name="PlayerActions" type="Node" parent="."]

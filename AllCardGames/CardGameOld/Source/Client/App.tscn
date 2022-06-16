@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/Client/MainMenu/MainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Source/Client/App.cs" type="Script" id=2]
+[ext_resource path="res://Source/Client/Screens/DeckEditor/DeckEditor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/Client/Screens/UserProfile/UserProfile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Source/Client/Screens/Settings/Settings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Source/Client/Room/Room.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Source/Client/DeckListMenu/DeckListMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Source/Client/User/Alex.tres" type="Resource" id=8]
+
+[node name="App" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+User = ExtResource( 8 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 1 )]
+
+[node name="DeckListMenu" parent="." instance=ExtResource( 7 )]
+margin_left = -1260.0
+margin_right = -1100.0
+selected = -1
+
+[node name="DeckEditor" parent="." instance=ExtResource( 3 )]
+visible = false
+mouse_filter = 2
+
+[node name="UserProfile" parent="." instance=ExtResource( 4 )]
+visible = false
+mouse_filter = 2
+
+[node name="Settings" parent="." instance=ExtResource( 5 )]
+visible = false
+mouse_filter = 2
+
+[node name="DisplayName" type="Label" parent="."]
+margin_left = 17.9797
+margin_top = 62.9289
+margin_right = 57.9797
+margin_bottom = 76.9289
+text = "NAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Room" parent="." instance=ExtResource( 6 )]

@@ -1,0 +1,29 @@
+﻿{
+  "Null Card":
+  {
+    "Name": "Null Card",
+    "Art": "res://assets/card_art/NullCard.png",
+    "CardType": "Null",
+    "Faction": "Null",
+    "Power": 0,
+    "Text": ""
+  },
+  "Basic Unit":
+  {
+    "Name": "Basic Unit",
+    "Art": "res://assets/card_art/BioShocker.png",
+    "CardType": "Unit",
+    "Faction": "Warrior",
+    "Power": 2000,
+    "Text": ""
+  },
+  "Basic Support":
+  {
+    "Name": "Basic Support",
+    "Art": "res://assets/card_art/QuestReward.png",
+    "CardType": "Support",
+    "Faction": "Null",
+    "Power": 0,
+    "Text": "Draw 2 Cards"
+  }
+}

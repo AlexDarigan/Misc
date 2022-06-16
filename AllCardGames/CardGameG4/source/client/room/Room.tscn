@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://3spemaeery6j"]
+
+[ext_resource type="Script" path="res://source/client/room/room.gd" id="1_1pt48"]
+[ext_resource type="Material" path="res://assets/PlankedWood.material" id="2_20l1o"]
+[ext_resource type="Script" path="res://source/client/room/table/table.gd" id="2_63mw6"]
+[ext_resource type="Script" path="res://source/client/room/participant.gd" id="2_i2ofj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lmbti"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3wc5b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7wl3"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.188235, 0.223529, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ito7c"]
+
+[node name="Room" type="Window"]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(800, 800)
+current_screen = 1
+script = ExtResource( "1_1pt48" )
+
+[node name="Table" type="Node3D" parent="."]
+script = ExtResource( "2_63mw6" )
+
+[node name="TableMesh" type="MeshInstance3D" parent="Table"]
+transform = Transform3D(4, 0, 0, 0, 0.005, 0, 0, 0, 2.5, 4, 0, 2.5)
+layers = 3
+mesh = SubResource( "BoxMesh_lmbti" )
+surface_material_override/0 = ExtResource( "2_20l1o" )
+
+[node name="PassPlayButton" type="MeshInstance3D" parent="Table"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 4, 0, 2.5)
+layers = 3
+mesh = SubResource( "SphereMesh_3wc5b" )
+surface_material_override/0 = SubResource( "StandardMaterial3D_l7wl3" )
+
+[node name="Area3D" type="Area3D" parent="Table/PassPlayButton"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/PassPlayButton/Area3D"]
+shape = SubResource( "SphereShape3D_ito7c" )
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource( "2_i2ofj" )
+
+[node name="DeckHint" type="Position3D" parent="Player"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 7.5, 0.003, 4.5)
+
+[node name="DiscardHint" type="Position3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.003, 3.5)
+
+[node name="HandHint" type="Position3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.819152, -0.573576, 0, 0.573576, 0.819152, 4.295, 0.5, 5)
+
+[node name="UnitsHint" type="Position3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.003, 3.5)
+
+[node name="SupportsHint" type="Position3D" parent="Player"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.5, 0.003, 4.5)
+
+[node name="Rival" type="Node" parent="."]
+script = ExtResource( "2_i2ofj" )
+
+[node name="DeckHint" type="Position3D" parent="Rival"]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0, -8.74228e-08, 7.64274e-15, -1, 0.5, 0.003, 0.5)
+
+[node name="DiscardHint" type="Position3D" parent="Rival"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.5, 0.003, 1.5)
+
+[node name="HandHint" type="Position3D" parent="Rival"]
+transform = Transform3D(-1, -8.60947e-08, -1.51808e-08, -3.55271e-15, 0.173648, -0.984808, 8.74228e-08, -0.984808, -0.173648, 3.705, 0.5, 0)
+
+[node name="UnitsHint" type="Position3D" parent="Rival"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0.003, 1.5)
+
+[node name="SupportsHint" type="Position3D" parent="Rival"]
+transform = Transform3D(1, 8.74228e-08, 8.74228e-08, 8.74228e-08, -1, 0, 8.74228e-08, 7.64274e-15, -1, 7.5, 0.003, 0.5)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 4, 4, 4.25)
+cull_mask = 0
+current = true
+far = 100.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78372, -1.56109, 0)
+visible = false

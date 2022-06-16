@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b18xcx386xshv"]
+
+[ext_resource type="Script" path="res://source/client/resources/decklist.gd" id="1_3j14k"]
+
+[resource]
+script = ExtResource( "1_3j14k" )
+deck_list = ["Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support", "Basic Unit", "Basic Support"]

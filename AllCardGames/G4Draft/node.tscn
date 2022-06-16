@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6tj6f6vxmbn2"]
+
+[ext_resource type="Script" path="res://Node.gd" id="1_c2mih"]
+[ext_resource type="Resource" uid="uid://d3nvgpp3ghcwk" path="res://server/library/standard_library.tres" id="2_gqyrj"]
+
+[node name="Node" type="Node"]
+script = ExtResource( "1_c2mih" )
+lib = ExtResource( "2_gqyrj" )

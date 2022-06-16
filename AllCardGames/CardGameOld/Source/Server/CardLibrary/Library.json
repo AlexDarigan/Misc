@@ -1,0 +1,30 @@
+{
+  "Null Card": 
+  {
+  "Title": "Null Card",
+  "CardType": "Null",
+  "Faction": "Null",
+  "Power": 0,
+  "Skill": { "Description": "", "Triggers": [], "OpCodes": [] }
+  },
+  "Basic Unit":
+  {
+    "Title": "Basic Unit",
+    "CardType": "Unit",
+    "Faction": "Warrior",
+    "Power": 2000,
+    "Skill": { "Description": "", "Triggers": [], "OpCodes": [] }
+  },
+  "Basic Support":
+  {
+    "Title": "Basic Support",
+    "CardType": "Support",
+    "Faction": "Null",
+    "Power": 0,
+    "Skill": { 
+      "Description": "Draw 2 Cards", 
+      "Triggers": ["Any"], 
+      "OpCodes": ["Literal", "2", "GetController", "Draw"] }
+  }
+}
+

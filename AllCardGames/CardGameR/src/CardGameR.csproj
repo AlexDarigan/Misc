@@ -1,0 +1,15 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Common\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Common\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global\TestScene.tscn" />
+  </ItemGroup>
+</Project>

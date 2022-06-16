@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Client/UserData/User.cs" type="Script" id=1]
+[ext_resource path="res://Client/UserData/DefaultDeckList.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+Name = "Alex"
+Decks = [ ExtResource( 2 ) ]
+CurrentDeck = ExtResource( 2 )

@@ -1,0 +1,5 @@
+﻿Fake user directory used for debugging purposes.
+
+TODO: 
+Build a DataLoader Class that knows how to swap between
+the fake and real data using OS.has_feature() and or similar functions

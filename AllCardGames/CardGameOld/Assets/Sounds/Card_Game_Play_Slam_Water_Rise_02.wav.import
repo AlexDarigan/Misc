@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Card_Game_Play_Slam_Water_Rise_02.wav-5e5ed9cd702c4b95143c6d3759d3d293.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Card_Game_Play_Slam_Water_Rise_02.wav"
+dest_files=[ "res://.import/Card_Game_Play_Slam_Water_Rise_02.wav-5e5ed9cd702c4b95143c6d3759d3d293.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

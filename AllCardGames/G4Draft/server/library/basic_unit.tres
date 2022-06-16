@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://doiplskjanmco"]
+
+[ext_resource type="Resource" uid="uid://dy6h8c5loo7nk" path="res://server/card/unit.tres" id="1_8bebb"]
+[ext_resource type="Script" path="res://server/card/carddata.gd" id="1_42ewe"]
+[ext_resource type="PackedScene" uid="uid://bf0dqoorngqb0" path="res://server/DefaultCard.tscn" id="1_bd450"]
+[ext_resource type="Resource" uid="uid://devoycur8lb8v" path="res://server/card/warrior.tres" id="2_f1fan"]
+
+[resource]
+script = ExtResource( "1_42ewe" )
+title = "Basic Unit"
+power = 2000
+setcode = "1"
+card_type = ExtResource( "1_8bebb" )
+faction = ExtResource( "2_f1fan" )
+ServerScene = ExtResource( "1_bd450" )

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Common/PlainTextLogger.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Logged = "Starting Plain TextLogger (res://Common/PlainTextLogger.cs)
+Connected to Server (res://Client/Network.cs)
+Connected to Server (res://Client/Network.cs)
+707478223 has connected (res://Server/Network.cs)
+926971288 has connected (res://Server/Network.cs)
+"
+PrintToConsole = false
+PrintToGodot = false

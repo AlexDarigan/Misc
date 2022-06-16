@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf0dqoorngqb0"]
+
+[ext_resource type="Script" path="res://server/card/card.gd" id="1_7m3bc"]
+
+[node name="DefaultCard" type="Node"]
+script = ExtResource( "1_7m3bc" )

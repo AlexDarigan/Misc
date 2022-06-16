@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NumberLoop5.mp3-db84f51656eddd1386dd30bd0a81d9b8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NumberLoop5.mp3"
+dest_files=[ "res://.import/NumberLoop5.mp3-db84f51656eddd1386dd30bd0a81d9b8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

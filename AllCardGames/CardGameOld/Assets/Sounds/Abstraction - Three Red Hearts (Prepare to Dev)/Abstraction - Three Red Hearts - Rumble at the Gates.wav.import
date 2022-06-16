@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Abstraction - Three Red Hearts - Rumble at the Gates.wav-c30903ea1c18858fa99e81a8a3f058d8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Abstraction - Three Red Hearts (Prepare to Dev)/Abstraction - Three Red Hearts - Rumble at the Gates.wav"
+dest_files=[ "res://.import/Abstraction - Three Red Hearts - Rumble at the Gates.wav-c30903ea1c18858fa99e81a8a3f058d8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

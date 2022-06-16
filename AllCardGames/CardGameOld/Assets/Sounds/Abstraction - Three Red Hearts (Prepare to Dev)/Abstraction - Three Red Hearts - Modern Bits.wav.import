@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Abstraction - Three Red Hearts - Modern Bits.wav-b1421749c6edbebcef025a10e7137c91.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Abstraction - Three Red Hearts (Prepare to Dev)/Abstraction - Three Red Hearts - Modern Bits.wav"
+dest_files=[ "res://.import/Abstraction - Three Red Hearts - Modern Bits.wav-b1421749c6edbebcef025a10e7137c91.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

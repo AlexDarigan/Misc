@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://yd6ba6edxkvx"]
+
+[ext_resource type="Script" path="res://source/client/app.gd" id="1_lr3e4"]
+[ext_resource type="PackedScene" uid="uid://3spemaeery6j" path="res://source/client/room/Room.tscn" id="2_mh6wm"]
+[ext_resource type="Script" path="res://source/client/decklist_menu/deck_list_menu.gd" id="2_wurul"]
+[ext_resource type="PackedScene" uid="uid://tobqe8y5xdfa" path="res://source/client/screens/deck_editor/DeckEditor.tscn" id="3_iwxo8"]
+[ext_resource type="Script" path="res://source/client/screens/deck_editor/deck_editor.gd" id="4_oms2d"]
+[ext_resource type="PackedScene" uid="uid://tlyp5q4mw8qj" path="res://source/client/screens/user_profile/UserProfile.tscn" id="5_oqtfu"]
+[ext_resource type="PackedScene" uid="uid://bic0bhnvfll1q" path="res://source/client/screens/settings/Settings.tscn" id="6_5m2pk"]
+[ext_resource type="Script" path="res://source/client/screens/settings/settings.gd" id="7_5502e"]
+
+[node name="App" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_lr3e4" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="HBoxContainer" parent="."]
+offset_right = 370.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="MainMenu"]
+offset_right = 44.0
+offset_bottom = 40.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeckEditor" type="Button" parent="MainMenu"]
+offset_left = 48.0
+offset_right = 148.0
+offset_bottom = 40.0
+text = "Deck Editor"
+
+[node name="UserProfile" type="Button" parent="MainMenu"]
+offset_left = 152.0
+offset_right = 254.0
+offset_bottom = 40.0
+text = "User Profile"
+
+[node name="Settings" type="Button" parent="MainMenu"]
+offset_left = 258.0
+offset_right = 331.0
+offset_bottom = 40.0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MainMenu"]
+offset_left = 335.0
+offset_right = 380.0
+offset_bottom = 40.0
+text = "Quit"
+
+[node name="DeckListMenu" type="OptionButton" parent="."]
+offset_left = 20.0
+offset_top = 528.0
+offset_right = 344.0
+offset_bottom = 568.0
+script = ExtResource( "2_wurul" )
+
+[node name="DeckEditor" parent="." instance=ExtResource( "3_iwxo8" )]
+script = ExtResource( "4_oms2d" )
+
+[node name="UserProfile" parent="." instance=ExtResource( "5_oqtfu" )]
+
+[node name="Settings" parent="." instance=ExtResource( "6_5m2pk" )]
+script = ExtResource( "7_5502e" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DisplayName" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 198.0
+offset_right = 165.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 16
+
+[node name="Room" parent="." instance=ExtResource( "2_mh6wm" )]

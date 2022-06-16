@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Server/Network.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Client/Network.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node"]
+
+[node name="Server" parent="." instance=ExtResource( 1 )]
+TableFactory = null
+
+[node name="Client" parent="." instance=ExtResource( 2 )]

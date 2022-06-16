@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Client/ClientNetwork.cs" type="Script" id=1]
+[ext_resource path="res://LocalHost.tres" type="Resource" id=2]
+[ext_resource path="res://DefaultLogger.tres" type="Resource" id=3]
+
+[node name="ClientNetwork" type="Node"]
+script = ExtResource( 1 )
+NetworkConfig = ExtResource( 2 )
+Logger = ExtResource( 3 )

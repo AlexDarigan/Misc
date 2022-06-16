@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://d3nvgpp3ghcwk"]
+
+[ext_resource type="Script" path="res://server/library/library.gd" id="1_6y372"]
+[ext_resource type="Resource" uid="uid://bngyyimcmy5pc" path="res://server/library/null_card.tres" id="1_j4qv3"]
+[ext_resource type="Resource" uid="uid://doiplskjanmco" path="res://server/library/basic_unit.tres" id="2_sdipd"]
+[ext_resource type="Resource" uid="uid://diwvrtrxuohgc" path="res://server/library/basic_support.tres" id="3_jinvb"]
+
+[resource]
+script = ExtResource( "1_6y372" )
+carddata = [ExtResource( "1_j4qv3" ), ExtResource( "2_sdipd" ), ExtResource( "3_jinvb" )]

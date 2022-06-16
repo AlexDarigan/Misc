@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bngyyimcmy5pc"]
+
+[ext_resource type="Script" path="res://server/card/carddata.gd" id="1_42ewe"]
+[ext_resource type="Resource" uid="uid://dkuwwd1s3k7l3" path="res://server/card/nulltype.tres" id="1_d0dsf"]
+[ext_resource type="PackedScene" uid="uid://bf0dqoorngqb0" path="res://server/DefaultCard.tscn" id="1_jw3u5"]
+[ext_resource type="Resource" uid="uid://dlph74420a4di" path="res://server/card/nullfaction.tres" id="2_8gbe5"]
+
+[resource]
+script = ExtResource( "1_42ewe" )
+title = "Null Card"
+power = 0
+setcode = "0"
+card_type = ExtResource( "1_d0dsf" )
+faction = ExtResource( "2_8gbe5" )
+ServerScene = ExtResource( "1_jw3u5" )

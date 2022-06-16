@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bp2en4a3f0djs"]
+
+[ext_resource type="Resource" uid="uid://b18xcx386xshv" path="res://source/client/user/deck_lists/default.tres" id="1_pv7un"]
+[ext_resource type="Script" path="res://source/client/resources/user.gd" id="2_gtvuc"]
+
+[resource]
+script = ExtResource( "2_gtvuc" )
+rank = 0
+display_name = "Jess"
+deck_list = ExtResource( "1_pv7un" )
