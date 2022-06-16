@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/property_shepherd/PropertyExporter.gd" type="Script" id=1]
+
+[node name="PropertyExporter" type="VBoxContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 225.0
+margin_bottom = 186.0
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 219.0
+margin_bottom = 20.0
+text = "Fold Dock"
+
+[node name="Name" type="HBoxContainer" parent="."]
+margin_top = 24.0
+margin_right = 219.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="Name"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 70, 0 )
+text = "Label"
+
+[node name="Input" type="LineEdit" parent="Name"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Property" type="HBoxContainer" parent="."]
+margin_top = 52.0
+margin_right = 219.0
+margin_bottom = 72.0
+
+[node name="Label" type="Label" parent="Property"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 70, 0 )
+text = "Field"
+
+[node name="List" type="OptionButton" parent="Property"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Type" type="HBoxContainer" parent="."]
+margin_top = 76.0
+margin_right = 219.0
+margin_bottom = 96.0
+
+[node name="Label" type="Label" parent="Type"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 70, 0 )
+text = "Type"
+
+[node name="List" type="OptionButton" parent="Type"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "NIL"
+items = [ "NIL", null, false, 0, null, "BOOL", null, false, 1, null, "INT", null, false, 2, null, "REAL", null, false, 3, null, "STRING", null, false, 4, null, "VECTOR2", null, false, 5, null, "RECT2", null, false, 6, null, "VECTOR3", null, false, 7, null, "TRANSFORM2D", null, false, 8, null, "PLANE", null, false, 9, null, "QUAT", null, false, 10, null, "AABB", null, false, 11, null, "BASIS", null, false, 12, null, "TRANSFORM", null, false, 13, null, "COLOR", null, false, 14, null, "NODE_PATH", null, false, 15, null, "RID", null, false, 16, null, "OBJECT", null, false, 17, null, "DICTIONARY", null, false, 18, null, "ARRAY", null, false, 19, null, "RAW_ARRAY", null, false, 20, null, "INT_ARRAY", null, false, 21, null, "REAL_ARRAY", null, false, 22, null, "STRING_ARRAY", null, false, 23, null, "VECTOR2_ARRAY", null, false, 24, null, "VECTOR3_ARRAY", null, false, 25, null, "COLOR_ARRAY", null, false, 26, null ]
+selected = 0
+
+[node name="Group" type="HBoxContainer" parent="."]
+margin_top = 100.0
+margin_right = 219.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="Group"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 70, 0 )
+text = "Group"
+
+[node name="List" type="OptionButton" parent="Group"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Category" type="HBoxContainer" parent="."]
+margin_top = 124.0
+margin_right = 219.0
+margin_bottom = 144.0
+
+[node name="Label" type="Label" parent="Category"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 70, 0 )
+text = "Category"
+
+[node name="List" type="OptionButton" parent="Category"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Usage" type="HBoxContainer" parent="."]
+margin_top = 148.0
+margin_right = 219.0
+margin_bottom = 168.0
+
+[node name="Label" type="Label" parent="Usage"]
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 70, 0 )
+text = "Usage"
+
+[node name="List" type="OptionButton" parent="Usage"]
+margin_left = 74.0
+margin_right = 219.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Property"
+items = [ "Property", null, false, 0, null, "Group", null, false, 1, null, "Category", null, false, 2, null ]
+selected = 0
+
+[node name="ExportProperty" type="Button" parent="."]
+margin_top = 172.0
+margin_right = 219.0
+margin_bottom = 192.0
+text = "Export Property"

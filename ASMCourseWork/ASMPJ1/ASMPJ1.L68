@@ -1,0 +1,526 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 22/03/2022 21:26:48
+
+00000000                             1  *-----------------------------------------------------------------------
+00000000                             2  * STUDENT NAME  : DAVID DARIGAN
+00000000                             3  * STUDENT ID    : C00263218
+00000000                             4  * PURPOSE       : DESIGN A GAME BASED ON Games Fleadh 2022 Theme: SDG13
+00000000                             5  *-----------------------------------------------------------------------
+00000000                             6  
+00000000                             7  
+00000000                             8  *----------------------------------
+00000000                             9  * STARTING MEMORY ADDRESS FOR GAME
+00000000                            10  *----------------------------------
+00000000                            11  
+00001000                            12      ORG    $1000
+00001000                            13  
+00001000                            14  *---------------------------
+00001000                            15  * VALUES TO BE USED IN GAME 
+00001000                            16  *---------------------------
+00001000                            17  
+00001000  =0000000D                 18  CR                  EQU $0D     Carriage Return
+00001000  =0000000A                 19  LF                  EQU $0A     Line Feed
+00001000  =00000009                 20  HT                  EQU $09     Horizontal Tab
+00001000                            21  
+00001000                            22  *-------------------------
+00001000                            23  * GAME CONDITION VALUES
+00001000                            24  *-------------------------
+00001000                            25  
+00001000  =00000064                 26  MAX_CARBON          EQU 100     Maximum Carbon
+00001000  =0000000A                 27  MIN_CARBON          EQU 10      Minimum Carbon
+00001000                            28  
+00001000  =00000064                 29  MAX_CASH            EQU 100     Maximum Cash Goal
+00001000  =0000000A                 30  MIN_CASH            EQU 10      Minimum Required Cash
+00001000                            31  
+00001000                            32  
+00001000                            33  *-------
+00001000                            34  * GAME
+00001000                            35  *--------
+00001000                            36  
+00001000                            37  START:
+00001000  6100 025E                 38      BSR CLEAR_SCREEN        # CLEARING SCREEN IN CASE THIS IS A REPLAY
+00001004  6100 000A                 39      BSR WELCOME_MESSAGE
+00001008  6100 001E                 40      BSR INITIALIZE_MEMORY
+0000100C  6100 003C                 41      BSR GAMELOOP
+00001010                            42  
+00001010                            43  *---------------------------
+00001010                            44  * GAME ON START SUBROUTINES
+00001010                            45  *---------------------------
+00001010                            46  
+00001010                            47  WELCOME_MESSAGE:
+00001010  43F9 00001338             48      LEA     WelcomeMessage, A1
+00001016  103C 000E                 49      MOVE.B  #14,D0
+0000101A  4E4F                      50      TRAP    #15
+0000101C  6100 0250                 51      BSR     DISPLAY_CURSOR
+00001020  103C 0005                 52      MOVE.B  #5, D0              WAIT FOR ANY KEY BEFORE CONTINUINING WITH THE GAME
+00001024  4E4F                      53      TRAP    #15
+00001026  4E75                      54      RTS
+00001028                            55      
+00001028                            56  INITIALIZE_MEMORY:
+00001028  13FC 000A 00001B1D        57      MOVE.B  #10, Cash           SET CASH TO THE DEFAULT VALUE #10 DECIMAL
+00001030  13FC 0032 00001B1F        58      MOVE.B  #50, Carbon         SET TOTAL CARBON TO THE DEFAULT VALUE #50 DECIMAL
+00001038  13FC 0004 00001B1E        59      MOVE.B  #4, Income          SET THE CURRENT INCOME RATE TO THE DEFAULT VALUE #4 
+00001040  13FC 0004 00001B20        60      MOVE.B  #4, CarbonRate
+00001048  4E75                      61      RTS
+0000104A                            62  
+0000104A                            63  *----------------
+0000104A                            64  * CORE GAME LOOP
+0000104A                            65  *----------------
+0000104A                            66  
+0000104A                            67  GAMELOOP:
+0000104A  6100 0214                 68      BSR CLEAR_SCREEN
+0000104E  6100 0040                 69      BSR PURCHASE
+00001052  6100 023C                 70      BSR WAIT
+00001056  6100 0012                 71      BSR UPDATE_TOTALS
+0000105A  6100 0204                 72      BSR CLEAR_SCREEN
+0000105E  6100 0172                 73      BSR DISPLAY_HUD
+00001062  6100 0234                 74      BSR CHECK_GAME_CONDITIONS
+00001066  60E2                      75      BRA GAMELOOP
+00001068  4E75                      76      RTS
+0000106A                            77  
+0000106A                            78  UPDATE_TOTALS:
+0000106A  1039 00001B1D             79      MOVE.B  Cash,D0             RETRIEVE CURRENT CASH VALUE
+00001070  1239 00001B1F             80      MOVE.B  Carbon,D1           RETRIEVE CURRENT CARBON VALUES
+00001076  D039 00001B1E             81      ADD.B   Income,D0           ADD ONE ROUND OF INCOME TO THE CASH VALUE STORED IN D0
+0000107C  D239 00001B20             82      ADD.B   CarbonRate,D1       ADD ONE ROUND OF CARBON TO THE TOTAL CARBON VALUE STORED IN D1
+00001082  13C0 00001B1D             83      MOVE.B  D0,Cash             UPDATE CASH WITH THE NEW CASH VALUE FROM D0
+00001088  13C1 00001B1F             84      MOVE.B  D1,Carbon           UPDATE CARBON WITH THE NEW CARBON VALUE FROM D1
+0000108E  4E75                      85      RTS
+00001090                            86  
+00001090                            87  
+00001090                            88  *-----------------------
+00001090                            89  * PURCHASING ITEMS
+00001090                            90  *-----------------------
+00001090                            91  
+00001090                            92  PURCHASE:
+00001090  6100 0140                 93      BSR DISPLAY_HUD
+00001094  6100 0010                 94      BSR DISPLAY_PROMPT
+00001098  6100 001A                 95      BSR DISPLAY_MENU
+0000109C  6100 0024                 96      BSR GET_INPUT
+000010A0  6100 002C                 97      BSR TRANSACTION
+000010A4  4E75                      98      RTS    
+000010A6                            99      
+000010A6                           100  DISPLAY_PROMPT:
+000010A6  43F9 000015DB            101      LEA     PurchasePrompt,A1       LOAD EFFECTIVE ADDRESS OF PURCHASE PROMPT CONSTANT TO ADDRESS REGISTER 1
+000010AC  103C 000E                102      MOVE.B  #14,D0                  LOAD "DISPLAY STRING" TASK TO D0
+000010B0  4E4F                     103      TRAP    #15                     DISPLAY PURCHASE PROMPT
+000010B2  4E75                     104      RTS                             RETURN TO PURCHASE SUBROUTINE
+000010B4                           105  
+000010B4                           106  DISPLAY_MENU:
+000010B4  43F9 0000163D            107      LEA     PurchaseMenu, A1        LOAD EFFECTIVE ADDRESS OF PURCHASE MENU CONSTANT TO ADDRESS REGISTER 1
+000010BA  103C 000E                108      MOVE.B  #14,D0                  LOAD "DISPLAY STRING" TASK TO D0
+000010BE  4E4F                     109      TRAP    #15                     DISPLAY PURCHASE MENU
+000010C0  4E75                     110      RTS                             RETURN TO PURCHASE SUBROUTINE
+000010C2                           111  
+000010C2                           112  GET_INPUT:
+000010C2  6100 01AA                113      BSR     DISPLAY_CURSOR          DISPLAY CURSOR (">")
+000010C6  103C 0004                114      MOVE.B  #4,D0                   LOAD "READ INT FROM USER" TASK TO D0
+000010CA  4E4F                     115      TRAP    #15                     READ INT FROM USER ON ENTER
+000010CC  4E75                     116      RTS                             RETURN TO PURCHASE SUBROUTINE
+000010CE                           117  
+000010CE                           118  TRANSACTION:
+000010CE  B23C 0000                119      CMP.B   #0, D1
+000010D2  6700 003C                120      BEQ     PURCHASE_NOTHING        BRANCH TO PURCHASE_NOTHING SUBROUTINE IF 0 WAS SELECTED
+000010D6  B23C 0001                121      CMP.B   #1,D1
+000010DA  6700 0046                122      BEQ     PURCHASE_CHICKEN        BRANCH TO PURCHASE_CHICKEN SUBROUTINE IF 1 WAS SELECTED
+000010DE  B23C 0002                123      CMP.B   #2,D1
+000010E2  6700 0050                124      BEQ     PURCHASE_COW            BRANCH TO PURCHASE_COW SUBROUTINE IF 2 WAS SELECTED
+000010E6  B23C 0003                125      CMP.B   #3,D1
+000010EA  6700 005A                126      BEQ     PURCHASE_SHEEP          BRANCH TO PURCHASE_SHEEP SUBROUTINE IF 3 WAS SELECTED
+000010EE  B23C 0004                127      CMP.B   #4,D1
+000010F2  6700 0064                128      BEQ     PURCHASE_FLOWER         BRANCH TO PURCHASE_FLOWER SUBROUTINE IF 4 WAS SELECTED
+000010F6  B23C 0005                129      CMP.B   #5,D1
+000010FA  6700 006E                130      BEQ     PURCHASE_TREE           BRANCH TO PURCHASE_TREE SUBROUTINE IF 5 WAS SELECTED
+000010FE  B23C 0006                131      CMP.B   #6,D1
+00001102  6700 0078                132      BEQ     PURCHASE_SOLAR_PANEL    BRANCH TO PURCHASE_SOLAR_PANEL SUBROUTINE IF 6 WAS SELECTED
+00001106  B23C 0007                133      CMP.B   #7,D1
+0000110A  6700 0082                134      BEQ     PURCHASE_WINDMILL       BRANCH TO PURCHASE_WINDMILL SUBROUTINE IF 7 WAS SELECTED
+0000110E  6080                     135      BRA     PURCHASE                BRANCH TO PURCHASE IF INVALID INPUT WAS ENTERED
+00001110                           136  
+00001110                           137  PURCHASE_NOTHING:
+00001110  43F9 00001A0D            138      LEA     PurchaseNothing,A1      LOAD EFFECTIVE ADDRESS OF PurchaseNothing CONSTANT TO A1
+00001116  45F9 000018EC            139      LEA     NullObject, A2          LOAD EFFECTIVE ADDRESS OF NullObject TO A2 
+0000111C  6100 0082                140      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Null Object )
+00001120  4E75                     141      RTS                             RETURN TO PURCHASE SUBROUTINE
+00001122                           142  
+00001122                           143  PURCHASE_CHICKEN:
+00001122  43F9 00001A2E            144      LEA     PurchaseChicken, A1     LOAD EFFECTIVE ADDRESS OF PurchaseChicken CONSTANT TO A1
+00001128  45F9 000018F0            145      LEA     Chicken,A2              LOAD EFFECTIVE ADDRESS OF Chicken TO A2
+0000112E  6100 0070                146      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Chicken )
+00001132  4E75                     147      RTS                             RETURN TO PURCHASE SUBROUTINE
+00001134                           148  
+00001134                           149  PURCHASE_COW:
+00001134  43F9 00001A51            150      LEA     PurchaseCow,A1          LOAD EFFECTIVE ADDRESS OF PurchaseCow CONSTANT TO A1
+0000113A  45F9 000018F8            151      LEA     Cow,A2                  LOAD EFFECTIVE ADDRESS OF Cow TO A2
+00001140  6100 005E                152      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Cow )
+00001144  4E75                     153      RTS                             RETURN TO PURCHASE SUBROUTINE
+00001146                           154          
+00001146                           155  PURCHASE_SHEEP:
+00001146  43F9 00001A70            156      LEA     PurchaseSheep,A1        LOAD EFFECTIVE ADDRESS OF PurchaseSheep CONSTANT TO A1
+0000114C  45F9 000018F4            157      LEA     Sheep, A2               LOAD EFFECTIVE ADDRESS OF Sheep TO A2
+00001152  6100 004C                158      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Sheep )
+00001156  4E75                     159      RTS                             RETURN TO PURCHASE SUBROUTINE
+00001158                           160  
+00001158                           161  PURCHASE_FLOWER:
+00001158  43F9 00001A91            162      LEA     PurchaseFlower,A1       LOAD EFFECTIVE ADDRESS OF PurchaseFlower CONSTANT TO A1
+0000115E  45F9 000018FC            163      LEA     Flower, A2              LOAD EFFECTIVE ADDRESS OF Flower TO A2
+00001164  6100 003A                164      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Flower )
+00001168  4E75                     165      RTS                             RETURN TO PURCHASE SUBROUTINE
+0000116A                           166  
+0000116A                           167  PURCHASE_TREE:
+0000116A  43F9 00001AB3            168      LEA     PurchaseTree,A1         LOAD EFFECTIVE ADDRESS OF PurchaseTree CONSTANT TO A1
+00001170  45F9 00001900            169      LEA     Tree, A2                LOAD EFFECTIVE ADDRESS OF Tree TO A2
+00001176  6100 0028                170      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Tree )
+0000117A  4E75                     171      RTS                             RETURN TO PURCHASE SUBROUTINE
+0000117C                           172  
+0000117C                           173  PURCHASE_SOLAR_PANEL:
+0000117C  43F9 00001AD3            174      LEA     PurchaseSolarPanel,A1   LOAD EFFECTIVE ADDRESS OF PurchaseSolarPanel CONSTANT TO A1
+00001182  45F9 00001904            175      LEA     SolarPanel, A2          LOAD EFFECTIVE ADDRESS OF SolarPanel TO A2
+00001188  6100 0016                176      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Solar Panel )
+0000118C  4E75                     177      RTS                             RETURN TO PURCHASE SUBROUTINE
+0000118E                           178  
+0000118E                           179  PURCHASE_WINDMILL:
+0000118E  43F9 00001AFA            180      LEA     PurchaseWindmill,A1     LOAD EFFECTIVE ADDRESS OF PurchaseWindmill TO A1
+00001194  45F9 00001908            181      LEA     Windmill, A2            LOAD EFFECTIVE ADDRESS OF Windmill TO A2
+0000119A  6100 0004                182      BSR     TRANSACT                BRANCH TO TRANSACT SUBROUTINE TO COMPLETE TRANSACTION ( of Windmill )
+0000119E  4E75                     183      RTS                             RETURN TO PURCHASE SUBROUTINE
+000011A0                           184  
+000011A0                           185      
+000011A0                           186  TRANSACT:
+000011A0  103C 000E                187      MOVE.B  #14,D0              LOAD "DISPLAY STRING" TASK TO D0
+000011A4  4E4F                     188      TRAP    #15                 DISPLAY STRING VALUE AT ADDRESS STORED IN A1 (WHICH IS THE MESSAGE LOADED FROM THE CALLING PURCHASE_* SUBROUTINE)
+000011A6                           189  
+000011A6  101A                     190      MOVE.B  (A2)+,D0            MOVE THE COST OF THE CURRENT OBJECT TO D0 THEN INCREMENT THE ADDRESS IN A1 BY ONE PLACE
+000011A8  B039 00001B1D            191      CMP.B   Cash,D0             COMPARE THE PLAYER'S TOTAL CASH WITH THE OBJECT'S CASH VALUE
+000011AE  6E00 00CC                192      BGT     REJECT_PURCHASE     IF COST IS GREATER THAN PLAYER'S CASH ON HAND THE GAME REJECTS THE PURCHASE
+000011B2  9139 00001B1D            193      SUB.B   D0, Cash            OTHERWISE SUBTRACT THE COST FROM THE PLAYER'S TOTAL CASH
+000011B8                           194  
+000011B8  101A                     195      MOVE.B  (A2)+, D0           MOVE THE PROFIT VALUE OF THE CURRENT OBJECT TO D0 THEN INCREMENT THE ADDRESS IN A1 BY ONE PLACE
+000011BA  D139 00001B1E            196      ADD.B   D0, Income          ADD THE PROFIT VALUE OF THE CURRENT OBJECT TO THE PLAYER'S INCOME RATE
+000011C0                           197  
+000011C0  101A                     198      MOVE.B  (A2)+, D0           MOVE THE CARBON PRODUCTION RATE OF THE CURRENT OBJECT T0 D0 THEN INCREMENT THE ADDRESS IN A1 BY ONE PLACE
+000011C2  D139 00001B20            199      ADD.B   D0, CarbonRate      INCREASE THE PLAYER'S CARBON RATE BY THE CARBON PRODUCTION RATE OF THE CURRENT OBJECT ( SOMETIMES 0 )
+000011C8                           200  
+000011C8                           201      
+000011C8  1012                     202      MOVE.B  (A2), D0            MOVE THE CARBON REDUCTION RATE OF THE CURRENT OBJECT TO D0. THIS IS THE LAST VALUE SO WE DO NOT NEED TO INCREMENT.
+000011CA  9139 00001B20            203      SUB.B   D0, CarbonRate      DECREASE THE PLAYER'S CARBON RATE BY THE CARBON REDUCTION RATE OF THE CURRENT OBJECT ( SOMETIMES 0 )
+000011D0                           204  
+000011D0  4E75                     205      RTS
+000011D2                           206  
+000011D2                           207  
+000011D2                           208  DISPLAY_HUD:
+000011D2  43F9 00001556            209      LEA     HUD_GOALS, A1       
+000011D8  103C 000E                210      MOVE.B  #14, D0             
+000011DC  4E4F                     211      TRAP    #15                 
+000011DE                           212  
+000011DE  43F9 00001502            213      LEA     HUD_LINE,A1         
+000011E4  103C 000E                214      MOVE.B  #14,D0
+000011E8  4E4F                     215      TRAP    #15
+000011EA                           216  
+000011EA  43F9 000015AB            217      LEA     CASH_HUD,A1
+000011F0  103C 000E                218      MOVE.B  #14,D0
+000011F4  4E4F                     219      TRAP    #15
+000011F6                           220  
+000011F6  43F9 00001B1D            221      LEA     Cash,A1
+000011FC  1211                     222      MOVE.B  (A1),D1
+000011FE  103C 0003                223      MOVE.B  #3,D0
+00001202  4E4F                     224      TRAP    #15
+00001204                           225  
+00001204  43F9 000015B4            226      LEA     INCOME_HUD,A1
+0000120A  103C 000E                227      MOVE.B  #14,D0
+0000120E  4E4F                     228      TRAP    #15
+00001210                           229  
+00001210  43F9 00001B1E            230      LEA     Income,A1
+00001216  1211                     231      MOVE.B  (A1),D1
+00001218  103C 0003                232      MOVE.B  #3,D0
+0000121C  4E4F                     233      TRAP    #15
+0000121E                           234  
+0000121E  43F9 000015C0            235      LEA     CARBON_HUD,A1
+00001224  103C 000E                236      MOVE.B  #14,D0
+00001228  4E4F                     237      TRAP    #15
+0000122A                           238  
+0000122A  43F9 00001B1F            239      LEA     Carbon, A1
+00001230  1211                     240      MOVE.B  (A1),D1
+00001232  103C 0003                241      MOVE.B  #3,D0
+00001236  4E4F                     242      TRAP    #15
+00001238                           243  
+00001238  43F9 000015CB            244      LEA     CARBON_RATE_HUD,A1
+0000123E  103C 000E                245      MOVE.B  #14,D0
+00001242  4E4F                     246      TRAP    #15
+00001244                           247  
+00001244  43F9 00001B20            248      LEA     CarbonRate, A1
+0000124A  1211                     249      MOVE.B  (A1),D1
+0000124C  103C 0003                250      MOVE.B  #3,D0
+00001250  4E4F                     251      TRAP    #15
+00001252                           252  
+00001252  43F9 00001502            253      LEA     HUD_LINE,A1
+00001258  103C 000E                254      MOVE.B  #14,D0
+0000125C  4E4F                     255      TRAP    #15
+0000125E  4E75                     256      RTS
+00001260                           257  
+00001260                           258  CLEAR_SCREEN:
+00001260  103C 000B                259      MOVE.B  #11,D0
+00001264  323C FF00                260      MOVE.W  #$FF00,D1
+00001268  4E4F                     261      TRAP    #15
+0000126A  4241                     262      CLR.W   D1      ; Preventing Overflow in the DISPLAY_HUD method 
+0000126C  4E75                     263      RTS
+0000126E                           264  
+0000126E                           265  
+0000126E                           266  DISPLAY_CURSOR:
+0000126E  43F9 0000185F            267      LEA     Cursor,A1
+00001274  103C 000E                268      MOVE.B  #14,D0
+00001278  4E4F                     269      TRAP    #15
+0000127A  4E75                     270      RTS
+0000127C                           271  
+0000127C                           272  REJECT_PURCHASE:
+0000127C  43F9 00001865            273      LEA     NotEnoughCash,A1
+00001282  103C 000E                274      MOVE.B  #14,D0
+00001286  4E4F                     275      TRAP    #15
+00001288  6100 0006                276      BSR     WAIT
+0000128C  6000 FE02                277      BRA     PURCHASE
+00001290                           278  
+00001290                           279  WAIT:
+00001290  7264                     280      MOVE.L #100, D1
+00001292  7017                     281      MOVEQ #23,D0
+00001294  4E4F                     282      TRAP #15
+00001296  4E75                     283      RTS
+00001298                           284  
+00001298                           285  *--------------------------------
+00001298                           286  * Game Victory / Loss Conditions
+00001298                           287  *--------------------------------
+00001298                           288  
+00001298                           289  ; Not to self: Branch on right hand values
+00001298                           290  CHECK_GAME_CONDITIONS:
+00001298  6100 0008                291      BSR     CHECK_CARBON
+0000129C  6100 001E                292      BSR     CHECK_CASH
+000012A0  4E75                     293      RTS
+000012A2                           294  
+000012A2                           295  
+000012A2                           296  CHECK_CARBON:
+000012A2  43F9 00001B1F            297      LEA     Carbon, A1                  LOAD EFFECTIVE ADDRESS OF TOTAL CARBON TO ADDRESS REGISTER 1
+000012A8  1011                     298      MOVE.B  (A1),D0                     DEREFERENCE THE VALUE STORED AT THE ADDRESS IN ADDRESS REGISTER 1 T0 D0
+000012AA                           299      
+000012AA  B03C 0064                300      CMP.B   #MAX_CARBON,D0              COMPARE THE MAX_CARBON VALUE TO THE PLAYER'S CARBON VALUE STORED AT D0
+000012AE  6E00 0026                301      BGT     TOO_MUCH_CARBON             IF PLAYER'S (SIGNED) CARBON VALUE EXCEEDS THE MAX CARBON VALUE BRANCH TO TOO_MUCH_CARBON SUBROUTINE
+000012B2                           302      
+000012B2  B03C 000A                303      CMP.B   #MIN_CARBON, D0             OTHERWISE COMPARE THE MIN CARBON VALUE TO THE PLAYER'S CARBON VALUE STORED AT D0
+000012B6  6300 004E                304      BLS     CARBON_GOAL_REACHED         IF PLAYER'S (UNSIGNED) CARBON VALUE IS BELOW THE MIN CARBON VALUE BRANCH TO CARBON_GOAL_REACHED SUBROUTINE
+000012BA                           305      
+000012BA  4E75                     306      RTS                                 OTHERWISE RETURN TO CHECK_GAME_CONDITIONS SUBROUTINE
+000012BC                           307  
+000012BC                           308  CHECK_CASH:
+000012BC  43F9 00001B1D            309      LEA     Cash, A1                    LOAD EFFECTIVE ADDRESS OF TOTAL CASH VALUE TO ADDRESS REGISTER 1
+000012C2  1011                     310      MOVE.B  (A1),D0                     DEFERENCE THE VALUE STORED AT THE ADDRESS IN ADDRESS REGISTER 1 T0 D0
+000012C4                           311      
+000012C4  B03C 000A                312      CMP.B   #MIN_CASH,D0                COMPARE THE MIN_CASH VALUE TO THE PLAYER'S CURRENT CASH VALUE STORED AT D0
+000012C8  6300 001C                313      BLS     TOO_LITTLE_CASH             IF PLAYER'S (UNSIGNED) CASH VALUE IS LESS THAN THE MIN_CASH VALUE BRANCH TO TOO_LITTLE_CASH SUBROUTINE
+000012CC                           314  
+000012CC  B03C 0064                315      CMP.B   #MAX_CASH,D0                COMPARE THE MAX_CASH VALUE TO THE PLAYER'S CURRENT CASH VALUE STORED AT D1
+000012D0  6400 0024                316      BHS     CASH_GOAL_REACHED           IF PLAYER'S (UNSIGNED) CASH VALUE IS GREATER THAN THE MAX_CASH VALUE BRANCH TO CASH_GOAL_REACHED SUBROUTINE
+000012D4                           317      
+000012D4  4E75                     318      RTS                                 OTHERWISE RETURN TO CHECK_GAME_CONDITIONS SUBROUTINE
+000012D6                           319  
+000012D6                           320      
+000012D6                           321  TOO_MUCH_CARBON:
+000012D6  43F9 0000190C            322      LEA     TooMuchCarbon,A1
+000012DC  103C 000E                323      MOVE.B  #14, D0
+000012E0  4E4F                     324      TRAP    #15                 DISPLAY TooMuchCarbon FAILURE MESSAGE
+000012E2  6000 0032                325      BRA GAME_OVER               BRANCH ALWAYS TO GAME_OVER SUBROUTINE
+000012E6                           326      
+000012E6                           327  TOO_LITTLE_CASH:
+000012E6  43F9 00001951            328      LEA     TooLittleCash,A1  
+000012EC  103C 000E                329      MOVE.B  #14, D0             
+000012F0  4E4F                     330      TRAP    #15                 DISPLAY TooLittleCash FAILURE MESSAGE
+000012F2  6000 0022                331      BRA GAME_OVER               BRANCH ALWAYS TO GAME_OVER SUBROUTINE
+000012F6                           332      
+000012F6                           333  CASH_GOAL_REACHED:
+000012F6  43F9 0000198A            334      LEA     CashGoal,A1
+000012FC  103C 000E                335      MOVE.B  #14, D0
+00001300  4E4F                     336      TRAP    #15                 DISPLAY CashGoalReached SUCCESS MESSAGE
+00001302  6000 0012                337      BRA GAME_OVER               BRANCH ALWAYS TO GAME_OVER SUBROUTINE
+00001306                           338      
+00001306                           339  CARBON_GOAL_REACHED:
+00001306  43F9 000019C2            340      LEA     CarbonGoal,A1
+0000130C  103C 000E                341      MOVE.B  #14, D0
+00001310  4E4F                     342      TRAP    #15                 DISPLAY CarbonGoalReached SUCCESS MESSSAGE
+00001312  6000 0002                343      BRA GAME_OVER               BRANCH ALWAYS TO GAME_OVER SUBROUTINE
+00001316                           344  
+00001316                           345  *------------
+00001316                           346  * GAME END
+00001316                           347  *-----------
+00001316                           348  
+00001316                           349  GAME_OVER:
+00001316  43F9 000018BA            350      LEA     ReplayPrompt,A1
+0000131C  103C 000E                351      MOVE.B  #14,D0
+00001320  4E4F                     352      TRAP    #15                 ASK PLAYER TO ENTER 1 IF THEY WANT TO REPLAY
+00001322  6100 FF4A                353      BSR     DISPLAY_CURSOR
+00001326                           354      
+00001326  103C 0004                355      MOVE.B  #4,D0
+0000132A  4E4F                     356      TRAP    #15                 RETRIEVE INTEGER INPUT FROM USER
+0000132C                           357      
+0000132C  B23C 0001                358      CMP.B   #1,D1               COMPARE #1 AGAINST USER INPUT
+00001330  6700 FCCE                359      BEQ     START               IF EQUAL BRANCH TO START SUBROUTINE
+00001334                           360      
+00001334                           361  
+00001334                           362  
+00001334                           363  END:
+00001334  FFFF FFFF                364      SIMHALT
+00001338                           365  
+00001338                           366  
+00001338                           367  *------------------------
+00001338                           368  * Game Data
+00001338                           369  *------------------------
+00001338                           370  
+00001338= 53 75 73 74 61 69 ...    371  WelcomeMessage          DC.B  'Sustainable Farming',CR,LF,CR,LF
+0000134F= 20 57 65 6C 63 6F ...    372                          DC.B  ' Welcome to Sustainable Farming, a game about balancing your ',CR,LF
+0000138E= 20 73 68 6F 72 74 ...    373                          DC.B  ' short term self interest against long term group interest. ',CR,LF
+000013CC= 20 50 75 72 63 68 ...    374                          DC.B  ' Purchase farm production items to increase your income and',CR,LF
+00001409= 20 72 65 61 63 68 ...    375                          DC.B  ' reach your total cash goal but avoid producing too much carbon ', CR,LF
+0000144B= 20 6F 74 68 65 72 ...    376                          DC.B  ' otherwise the cash will not be useful in the wasteland created ', CR,LF
+0000148D= 20 62 79 20 79 6F ...    377                          DC.B  ' by your greed. However you must also stay profitable!',CR,LF
+000014C5= 20 4E 6F 20 63 61 ...    378                          DC.B  ' No cash means no survival!',CR,LF, CR,LF
+000014E4= 20 50 52 45 53 53 ...    379                          DC.B  ' PRESS ANY KEY TO CONTINUE ',CR,LF,0
+00001502                           380  
+00001502= 0D 0A 20 2D 2D 2D ...    381  HUD_LINE                DC.B    CR,LF,' ------------------------------------------------------------------------------',CR,LF,0
+00001556= 20 43 41 53 48 20 ...    382  HUD_GOALS               DC.B    ' CASH GOAL: 100',HT,'CARBON GOAL: <10', CR,LF
+00001578= 20 44 4F 20 4E 4F ...    383                          DC.B    ' DO NOT GO UNDER $10. DO NOT GO OVER 100 CARBON!',CR,LF,0
+000015AB= 20 43 41 53 48 3A ...    384  CASH_HUD                DC.B    ' CASH: $',0
+000015B4= 09 09 49 4E 43 4F ...    385  INCOME_HUD              DC.B    $09,$09,'INCOME: $',0
+000015C0= 09 09 43 41 52 42 ...    386  CARBON_HUD              DC.B    $09,$09,'CARBON: ',0
+000015CB= 09 09 43 41 52 42 ...    387  CARBON_RATE_HUD         DC.B    $09,$09,'CARBON RATE: ',0
+000015DB                           388  
+000015DB                           389  
+000015DB= 0D 0A 20 50 6C 65 ...    390  PurchasePrompt          DC.B    CR,LF,' Please select a number to purchase the related product',CR,LF,CR,LF
+00001618= 20 28 20 45 6E 74 ...    391                          DC.B    ' ( Enter 0 to make no purchase )',CR,LF,CR,LF,0
+0000163D= 20 7C 20 20 20 7C ...    392  PurchaseMenu            DC.B    ' |   | Name      | Produces   | Carbon | Cost | Profit |',CR,LF
+00001676= 20 7C 2D 2D 2D 7C ...    393                          DC.B    ' |---|--------------|------------|--------|------|--------|',CR,LF
+000016B3= 20 7C 20 31 20 7C ...    394                          DC.B    ' | 1 | Chicken      | Egg        | +1     | $1   | $1     |',CR,LF
+000016F0= 20 7C 20 32 20 7C ...    395                          DC.B    ' | 2 | Cow          | Milk       | +10    | $4   | $2     |',CR,LF
+0000172D= 20 7C 20 33 20 7C ...    396                          DC.B    ' | 3 | Sheep        | Wool       | +6     | $6   | $6     |',CR,LF
+0000176A= 20 7C 20 34 20 7C ...    397                          DC.B    ' | 4 | Flower       | Pollen     | -1     | $1   | $0     |',CR,LF
+000017A7= 20 7C 20 35 20 7C ...    398                          DC.B    ' | 5 | Tree         | Fruit      | -2     | $4   | $2     |',CR,LF
+000017E4= 20 7C 20 36 20 7C ...    399                          DC.B    ' | 6 | Solar Panel  | Electricty | -4     | $12  | $4     |',CR,LF
+00001821= 20 7C 20 37 20 7C ...    400                          DC.B    ' | 7 | Windmill     | Electricty | -8     | $20  | $4     |',CR,LF,0
+0000185F                           401  
+0000185F= 0D 0A 20 3E 20 00        402  Cursor                  DC.B    CR,LF,' > ',0
+00001865                           403  
+00001865= 0D 0A 20 59 6F 75 ...    404  NotEnoughCash           DC.B    CR,LF,' You do not have enough cash to purchase that item.', CR, LF
+0000189C= 20 50 6C 65 61 73 ...    405                          DC.B    ' Please select another item',CR,LF,0
+000018BA                           406                          
+000018BA= 20 45 6E 74 65 72 ...    407  ReplayPrompt            DC.B    ' Enter 1 to replay. Enter any other key to quit. ',0
+000018EC                           408  
+000018EC                           409  ; Objects               (Cost, Income, Carbon+, Carbon-)
+000018EC= 00 00 00 00              410  NullObject              DC.B    $0,$0,$0,$0
+000018F0= 01 01 01 00              411  Chicken                 DC.B    $1,$1,$1,$0
+000018F4= 04 02 04 00              412  Sheep                   DC.B    $4,$2,$4,$0
+000018F8= 06 06 0A 00              413  Cow                     DC.B    $6,$6,$A,$0
+000018FC= 01 00 00 01              414  Flower                  DC.B    $1,$0,$0,$1
+00001900= 04 02 00 02              415  Tree                    DC.B    $4,$2,$0,$2
+00001904= 0C 04 00 04              416  SolarPanel              DC.B    $C,$4,$0,$4
+00001908= 14 04 00 08              417  Windmill                DC.B    $14,$4,$0,$8
+0000190C                           418  
+0000190C= 20 47 61 6D 65 20 ...    419  TooMuchCarbon           DC.B    ' Game Over! You have exceeded the safe carbon amount of under 100!',CR,LF,0
+00001951= 20 47 61 6D 65 20 ...    420  TooLittleCash          DC.B    ' Game Over! You no longer have enough cash to survive!',CR,LF,0
+0000198A= 20 43 6F 6E 67 72 ...    421  CashGoal                DC.B    ' Congratulations! You have met your cash goal of 100!',CR,LF,0
+000019C2= 20 43 6F 6E 67 72 ...    422  CarbonGoal              DC.B    ' Congratulations! You have reduced carbon to the miniscule amount of 10!',CR,LF,0
+00001A0D                           423  
+00001A0D= 0D 0A 0D 0A 20 59 ...    424  PurchaseNothing         DC.B    CR,LF,CR,LF,' You are purchasing nothing!',0
+00001A2E= 0D 0A 0D 0A 20 59 ...    425  PurchaseChicken         DC.B    CR,LF,CR,LF,' You are purchasing a Chicken!',0
+00001A51= 0D 0A 0D 0A 20 59 ...    426  PurchaseCow             DC.B    CR,LF,CR,LF,' You are purchasing a Cow!',0
+00001A70= 0D 0A 0D 0A 20 59 ...    427  PurchaseSheep           DC.B    CR,LF,CR,LF,' You are purchasing a Sheep!',0
+00001A91= 0D 0A 0D 0A 20 59 ...    428  PurchaseFlower          DC.B    CR,LF,CR,LF,' You are purchasing a Flower!',0
+00001AB3= 0D 0A 0D 0A 20 59 ...    429  PurchaseTree            DC.B    CR,LF,CR,LF,' You are purchasing a Tree!',0
+00001AD3= 0D 0A 0D 0A 20 59 ...    430  PurchaseSolarPanel      DC.B    CR,LF,CR,LF,' You are purchasing a Solar Panel!',0
+00001AFA= 0D 0A 0D 0A 20 59 ...    431  PurchaseWindmill        DC.B    CR,LF,CR,LF,' You are purchasing a Windmill',0
+00001B1D                           432  
+00001B1D                           433  ; Reserving Space for Totals
+00001B1D                           434  Cash                    DS.B  1
+00001B1E                           435  Income                  DS.B  1
+00001B1F                           436  Carbon                  DS.B  1
+00001B20                           437  CarbonRate              DS.B  1
+00001B21                           438      END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+CARBON              1B1F
+CARBONGOAL          19C2
+CARBONRATE          1B20
+CARBON_GOAL_REACHED  1306
+CARBON_HUD          15C0
+CARBON_RATE_HUD     15CB
+CASH                1B1D
+CASHGOAL            198A
+CASH_GOAL_REACHED   12F6
+CASH_HUD            15AB
+CHECK_CARBON        12A2
+CHECK_CASH          12BC
+CHECK_GAME_CONDITIONS  1298
+CHICKEN             18F0
+CLEAR_SCREEN        1260
+COW                 18F8
+CR                  D
+CURSOR              185F
+DISPLAY_CURSOR      126E
+DISPLAY_HUD         11D2
+DISPLAY_MENU        10B4
+DISPLAY_PROMPT      10A6
+END                 1334
+FLOWER              18FC
+GAMELOOP            104A
+GAME_OVER           1316
+GET_INPUT           10C2
+HT                  9
+HUD_GOALS           1556
+HUD_LINE            1502
+INCOME              1B1E
+INCOME_HUD          15B4
+INITIALIZE_MEMORY   1028
+LF                  A
+MAX_CARBON          64
+MAX_CASH            64
+MIN_CARBON          A
+MIN_CASH            A
+NOTENOUGHCASH       1865
+NULLOBJECT          18EC
+PURCHASE            1090
+PURCHASECHICKEN     1A2E
+PURCHASECOW         1A51
+PURCHASEFLOWER      1A91
+PURCHASEMENU        163D
+PURCHASENOTHING     1A0D
+PURCHASEPROMPT      15DB
+PURCHASESHEEP       1A70
+PURCHASESOLARPANEL  1AD3
+PURCHASETREE        1AB3
+PURCHASEWINDMILL    1AFA
+PURCHASE_CHICKEN    1122
+PURCHASE_COW        1134
+PURCHASE_FLOWER     1158
+PURCHASE_NOTHING    1110
+PURCHASE_SHEEP      1146
+PURCHASE_SOLAR_PANEL  117C
+PURCHASE_TREE       116A
+PURCHASE_WINDMILL   118E
+REJECT_PURCHASE     127C
+REPLAYPROMPT        18BA
+SHEEP               18F4
+SOLARPANEL          1904
+START               1000
+TOOLITTLECASH       1951
+TOOMUCHCARBON       190C
+TOO_LITTLE_CASH     12E6
+TOO_MUCH_CARBON     12D6
+TRANSACT            11A0
+TRANSACTION         10CE
+TREE                1900
+UPDATE_TOTALS       106A
+WAIT                1290
+WELCOMEMESSAGE      1338
+WELCOME_MESSAGE     1010
+WINDMILL            1908
