@@ -1,0 +1,5 @@
+body{ /*Styling the background*/
+	min-height: 200vh; /* Gives the body a minimum height (which affects the background gradient)*/
+	padding: 40px; /* Gives a 40px padding between the body and its internal elements */	
+	background: linear-gradient(115deg, #315c6d 10%, #ffffff 90%); /* Color the background as a turquoise-white gradient*/
+}
