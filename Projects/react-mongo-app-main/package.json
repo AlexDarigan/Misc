@@ -1,0 +1,25 @@
+{
+  "name": "react-mongo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexDarigan/react-mongo-app.git"
+  },
+  "author": "Alex Darigan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexDarigan/react-mongo-app/issues"
+  },
+  "homepage": "https://github.com/AlexDarigan/react-mongo-app#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
