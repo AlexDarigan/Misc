@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Data/CardPrototype.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/CardArt/NullCard.png" type="Texture" id=2]
+
+[node name="NullCard" instance=ExtResource( 1 )]
+Art = ExtResource( 2 )
+Title = "Null Card"
+Text = "Placeholder"

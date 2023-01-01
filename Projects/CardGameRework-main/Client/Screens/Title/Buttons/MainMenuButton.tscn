@@ -1,0 +1,29 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Client/Screens/Title/Buttons/tone1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Client/Screens/Title/Buttons/Generic Musical UI Button Click - Soft User Interface Notification    [004703].wav" type="AudioStream" id=2]
+[ext_resource path="res://Client/Screens/Title/Buttons/MainMenuButton.cs" type="Script" id=3]
+[ext_resource path="res://Client/Screens/Title/Buttons/Focused.tres" type="StyleBox" id=4]
+[ext_resource path="res://Client/Screens/Title/Buttons/Disabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Client/Screens/Title/Buttons/Hovered.tres" type="StyleBox" id=6]
+[ext_resource path="res://Client/Screens/Title/Buttons/MainMenuButton.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Client/Screens/Title/Buttons/Pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://Client/Screens/Title/Buttons/Normal.tres" type="StyleBox" id=9]
+
+[node name="MainMenuButton" type="Button"]
+margin_right = 293.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 9 )
+text = "MainMenuButton"
+script = ExtResource( 3 )
+OnHovered = ExtResource( 1 )
+OnPressed = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 14.0

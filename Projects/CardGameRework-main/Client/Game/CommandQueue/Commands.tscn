@@ -1,0 +1,56 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalActivate.cs" type="Script" id=1]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerDraw.cs" type="Script" id=2]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerLoadDeck.cs" type="Script" id=3]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalDraw.cs" type="Script" id=4]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalDeploy.cs" type="Script" id=5]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerSetFaceDown.cs" type="Script" id=6]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalLoadDeck.cs" type="Script" id=7]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/Update.cs" type="Script" id=8]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerActivate.cs" type="Script" id=9]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerDeploy.cs" type="Script" id=10]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalSetFaceDown.cs" type="Script" id=11]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Rival/RivalSendToGraveyard.cs" type="Script" id=12]
+[ext_resource path="res://Client/Game/CommandQueue/Commands/Player/PlayerSendToGraveyard.cs" type="Script" id=13]
+
+[node name="Commands" type="Node"]
+
+[node name="Update" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="PlayerLoadDeck" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="PlayerDraw" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="PlayerDeploy" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="PlayerSetFaceDown" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="PlayerActivate" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="PlayerSendToGraveyard" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="RivalLoadDeck" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="RivalDraw" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="RivalDeploy" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="RivalSetFaceDown" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="RivalActivate" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="RivalSendToGraveyard" type="Node" parent="."]
+script = ExtResource( 12 )

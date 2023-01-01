@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/CardArt/NullCard.png" type="Texture" id=1]
+[ext_resource path="res://Client/Game/CardViewer.cs" type="Script" id=2]
+
+
+[node name="CardViewer" type="PanelContainer"]
+visible = false
+margin_left = 7.0
+margin_top = 123.0
+margin_right = 240.0
+margin_bottom = 440.0
+script = ExtResource( 2 )
+
+[node name="Image" type="TextureRect" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 226.0
+margin_bottom = 310.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="Image"]
+margin_left = 7.0
+margin_top = 179.0
+margin_right = 212.0
+margin_bottom = 299.0
+
+[node name="Text" type="RichTextLabel" parent="Image/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 198.0
+margin_bottom = 113.0

@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Client/Game/Table/WoodTable.material" type="Material" id=2]
+[ext_resource path="res://Client/Game/Table/Board.cs" type="Script" id=3]
+
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 10, 8, 0.5 )
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.0470588, 0.737255, 0.0862745, 1 )
+
+[sub_resource type="SphereShape" id=5]
+
+[node name="Board" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.5 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="PassPlayButton" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2.2 )
+mesh = SubResource( 1 )
+skeleton = NodePath("")
+material/0 = SubResource( 4 )
+
+[node name="Area" type="Area" parent="PassPlayButton"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PassPlayButton/Area"]
+shape = SubResource( 5 )
+
+[node name="CameraRig" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 2.4, 5 )
+
+[node name="Camera" type="Camera" parent="CameraRig"]
+environment = ExtResource( 1 )
+current = true
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2 )
+light_specular = 0.0
+light_bake_mode = 2
+shadow_bias = 0.6
+omni_range = 10.0
+omni_shadow_detail = 0

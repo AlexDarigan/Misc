@@ -1,0 +1,94 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>10</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Client\Card\**" />
+    <Compile Remove="Client\Screens\MainMenu\**" />
+    <Compile Remove="Server\Library\Cards\**" />
+    <Compile Remove="Client\Screens\Match\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="User\**" />
+    <Compile Remove="Data\EffectComponents\**" />
+    <Compile Remove="Client\Room\InputControllers\Events\**" />
+    <Compile Remove="Client\Room\Room\**" />
+    <Compile Remove="Client\Room\Zones\**" />
+    <Compile Remove="Client\Room\**" />
+    <Compile Remove="Server\Room\**" />
+    <Compile Remove="Assets\Models\Card2\**" />
+    <Compile Remove="Client\DeckListMenu\**" />
+    <Compile Remove="Client\DeckEditor\**" />
+    <Compile Remove="Client\Settings\**" />
+    <Compile Remove="Client\UserProfile\**" />
+    <Compile Remove="Client\MainMenu\**" />
+    <Compile Remove="Client\Game\Commands\**" />
+    <Compile Remove="Client\TitleScreen\**" />
+    <Compile Remove="Client\Title\**" />
+    <Compile Remove="Client\Screens\Title\SFX\**" />
+    <Compile Remove="Client\Game\Card\**" />
+    <Compile Remove="Client\Widgets\**" />
+    <Compile Remove="Client\Game\Players\Zones\**" />
+    <Compile Remove="Client\Resources\**" />
+    <Compile Remove="Client\Network\**" />
+    <Compile Remove="Server\Battle\**" />
+    <Compile Remove="Server\Events\**" />
+    <Compile Remove="Server\States\**" />
+    <Compile Remove="Client\Game\Players\SFX\**" />
+    <Compile Remove="Client\Game\Cards\Model\**" />
+    <Compile Remove="SomeCode\**" />
+    <Compile Remove="Tests\Server2\**" />
+    <Compile Remove="addons\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Data\EffectComponents\**" />
+    <EmbeddedResource Remove="Client\Room\InputControllers\Events\**" />
+    <EmbeddedResource Remove="Client\Room\Room\**" />
+    <EmbeddedResource Remove="Client\Room\Zones\**" />
+    <EmbeddedResource Remove="Client\Room\**" />
+    <EmbeddedResource Remove="Server\Room\**" />
+    <EmbeddedResource Remove="Assets\Models\Card2\**" />
+    <EmbeddedResource Remove="Client\DeckListMenu\**" />
+    <EmbeddedResource Remove="Client\DeckEditor\**" />
+    <EmbeddedResource Remove="Client\Settings\**" />
+    <EmbeddedResource Remove="Client\UserProfile\**" />
+    <EmbeddedResource Remove="Client\MainMenu\**" />
+    <EmbeddedResource Remove="Client\Game\Plays\Plays\**" />
+    <EmbeddedResource Remove="Client\Game\Commands\**" />
+    <EmbeddedResource Remove="Client\TitleScreen\**" />
+    <EmbeddedResource Remove="Client\Title\**" />
+    <EmbeddedResource Remove="Client\Screens\Title\SFX\**" />
+    <EmbeddedResource Remove="Client\Game\Card\**" />
+    <EmbeddedResource Remove="Client\Widgets\**" />
+    <EmbeddedResource Remove="Client\Game\Zones\**" />
+    <EmbeddedResource Remove="Client\Game\Players\Zones\**" />
+    <EmbeddedResource Remove="Client\Resources\**" />
+    <EmbeddedResource Remove="Client\Network\**" />
+    <EmbeddedResource Remove="Server\Battle\**" />
+    <EmbeddedResource Remove="Server\Events\**" />
+    <EmbeddedResource Remove="Server\States\**" />
+    <EmbeddedResource Remove="Client\Game\Players\SFX\**" />
+    <EmbeddedResource Remove="Client\Game\Cards\Model\**" />
+    <EmbeddedResource Remove="SomeCode\**" />
+    <EmbeddedResource Remove="Tests\Server2\**" />
+    <EmbeddedResource Remove="addons\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\Screens\Title\Scenes\TitleScreen.tscn" />
+    <Content Include="Client\Screens\Title\Textures\Background.png" />
+    <Content Include="Client\Screens\Title\Textures\Background.png.import" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Fonts\MainMenuButton.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Scenes\MainMenuButton.tscn" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\SFX\OnButtonHovered.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\SFX\OnButtonPressed.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Styles\Disabled.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Styles\Focused.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Styles\Hovered.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Styles\Normal.tres" />
+    <Content Include="Client\Screens\Title\Widgets\Buttons\Styles\Pressed.tres" />
+  </ItemGroup>
+</Project>
