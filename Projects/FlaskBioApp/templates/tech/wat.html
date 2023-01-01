@@ -1,0 +1,17 @@
+{% from 'components/article.html' import Article %}
+{% from 'components/newtab.html' import Newtab %}
+{% extends "base.html" %}
+{% block body %}
+{% call Article("wat.svg") %}
+<h1>{{Newtab("/dockerhome", "WAT")}}</h1>
+<p class="content">
+WAT ( Waiting and Testing ) is the penultimate automated unit testing plugin for Godot developed by moí.
+I say penultimate because another plugin takes the top spot, largely thanks to first-mover advantage. My goal
+in developing WAT was twofold; 1) I wanted to learn about Unit Testing and what better way than to develop a plugin
+to automate it, 2) I wanted a Unit Testing Plugin that better integrated with the Engine as if it came built-in with it. 
+After 3 years and 280~ stars on github, I would consider myself successful in this. 
+</p>
+<br>
+(Being interested in my own tech isn't cheating right?)
+{% endcall %}
+{% endblock %}

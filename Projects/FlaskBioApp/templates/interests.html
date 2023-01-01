@@ -1,0 +1,27 @@
+{% from 'components/article.html' import Article -%}
+{% extends "base.html" %}
+{% block body %} 
+{% call Article("bike.webp") -%}
+<h1>Cycling</h1>
+<p class="content">
+    During the first year of college, bar about 12 mondays in total, we were online all the time. 
+    I eventually got fed up on this, so the moment after our summer tests had finished (I never want
+    to take another online test in my life), I got up and started cycling almost everyday. At first it
+    was a few KM (about 5km) which would take me about half an hour at 12KPH but eventually I kept upping it
+    until I was doing close to 30KM a day, with plenty of elevation (I nearly died on some of those hills). 
+    Fortunately, this resulted me in losing between 30-40 pounds (30 for sure, 40 probably) which has led to
+    me sitting at a healthy enough weight of 155 pounds
+</p>
+{% endcall -%}
+{% call Article("cardback.jpg") -%}
+<h1>Trading Card Games</h1>
+<p class="content">
+    I used to play a lot of the Yugioh Trading Card Game from the ages of 12-27. That might seem like a lot
+    of time playing, but it isn't any compared to the amount of money spent playing. Everyone has their vices and
+    I think I might be a bit of a gambler at heart. Anyway, I couldn't keep up with the game anymore, between the speed at
+    which it was going or the prices it was demanding of players to stay competitive, so I quit. I decided to instead try my
+    own attempt at making a card game, which is how I started Software Development. I just constantly failed with trying to
+    learn Game Engines until I figured it out with Godot eventually.
+</p>
+{% endcall -%}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% from 'components/article.html' import Article -%}
+{% extends "base.html" %}
+{% block body %}
+{% call Article("me.jpg") %}
+<p class="content">
+    Hello Readers! I'm David though I tend to go by Alex, my middle name, online because I can't
+    think of a more plain name than David. Alex was supposed to be a personal representation of
+    my ambition (after Alexander The Great), I haven't conquered anywhere (yet) but I am a mature
+    student pushing my third year of a Comp Sci Related University Course so so far so so good. I
+    won't tell you my birthdate but I am the two fishes (Pisces).
+</p>
+{% endcall %}
+{% call Article("dog2.jpg") %}
+<p class="content">Our dog Molly Valetine Darigan. Molly was her name at the shelter and 
+    Valetine because that's when we got her! Her nails are ruined from digging holes
+</p>
+{% endcall %}
+{% call Article("dog1.jpg") %}
+<p class="content">Our other dog, well technically my dad's partner dog, but she is always at
+    our place, so she may as well be our dog at this rate. Bella, more formerely known as 
+    "Bella Donna, Deadly Nightshade" (Did you know Potatos were a type of Nightshade Plant?). We
+    may as well have called her Potato or "Spud". 
+</p>
+{% endcall %}
+{% endblock %}

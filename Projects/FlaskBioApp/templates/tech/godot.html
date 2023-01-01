@@ -1,0 +1,14 @@
+{% from 'components/article.html' import Article -%}
+{% from 'components/newtab.html' import Newtab -%}
+{% extends "base.html" %}
+{% block body %}
+{% call Article("godot.svg") %}
+<h1>{{Newtab("/godotengine", "Godot Engine")}}</h1>
+<p class="content">
+Godot is a FOSS (Free Open Source Software) Game Engine released under the MIT license. It was developed by {{Newtab("/juan", "Juan Linietsky")}}
+and {{Newtab("/ariel", "Ariel Manzur")}} from Argetina. The scripting language, GDScript, was developed for the Engine. This hypothetically allows for
+GDScript to be very effective for translating between the user-developer space and Godot's underlying API which is written in C++. The top two spots
+of game engines go to Unity and Unreal respectively. Godot is an ever-growing strong contender for the third place, among others like GameMaker and GDevelop.
+</p>
+{% endcall %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% macro Nav(content) -%}
+<ul class="nav-ul">
+    {% for item in content %}
+        <li class="nav-li"><a href="{{url_for(item.lower())}}">{{item}}</a></li>
+    {% endfor %}
+</ul>
+{% endmacro -%}

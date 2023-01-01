@@ -1,0 +1,10 @@
+{% from "components/card.html" import Card -%}
+
+{% extends "base.html" %}
+{% block body %} 
+<div style="display: flex; justify-content: space-around">
+{{Card("godot.svg", "Godot", "godot")}}
+{{Card("compose.png", "Jetpack Compose", "compose")}}
+{{Card("wat.svg", "WAT", "wattech")}}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% from 'components/article.html' import Article -%}
+{% from 'components/newtab.html' import Newtab -%}
+{% extends "base.html" %}
+{% block body %}
+{% call Article("compose.png") %}
+<h1>{{Newtab("/composehome", "Jetpack Compose")}}</h1>
+<p class="content">
+Jetpack Compose is a declarative UI Framework for Android by Google. It is similar to SwiftUI (for iOS) and React JS (
+for the Web). Developers write both their backend and frontend in Kotlin with Jetpack Compose. There is no need for templates, 
+such as this one I'm writing these words into right now. I like Jetpack Compose a lot personally but I despise Android Studio because
+it is incredibly slow. Fortunately, Jetbrains have created Jetpack Compose Multiplatform for Desktop, Web and Mobile UI.  
+</p>
+{% endcall %}
+{% endblock %}

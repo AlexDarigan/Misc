@@ -1,0 +1,9 @@
+{% macro Article(img) -%}
+<br>
+<center>
+    <img src={{"/static/images/" + img}} width="256" height="256">
+    {{caller()}}
+</center>
+<br>
+{%- endmacro -%}
+

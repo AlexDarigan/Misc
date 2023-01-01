@@ -1,0 +1,71 @@
+.nav-ul {
+    width: 85vw;
+    list-style-type: none;
+    margin: auto;
+    padding: auto;
+    overflow: hidden;
+    border: darkorange ridge 2px;
+    background-color: burlywood;
+    color: black;
+  }
+  
+.nav-li {
+  float: left;
+}
+  
+.nav-li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+  
+.nav-li a:hover {
+  background-color: darkorange
+}
+
+.content {
+  margin: auto;
+  padding: auto;
+  margin-bottom: 0px;
+  width: 60vw;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 4px;
+}
+
+.card {
+  background-color: black;
+  border: 2px blue inset;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.card-button:hover {
+  background-color: gray;
+}
+
+.card > h1 {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  color: white;
+}
+
+body {
+  background-color: lightblue;
+}
+
+.body-content {
+  width: 88vw;
+  margin-bottom: 0px;
+  margin: auto;
+  padding: auto;
+  border: darkorange ridge 2px;
+  background-color: burlywood;
+  color: black;
+}

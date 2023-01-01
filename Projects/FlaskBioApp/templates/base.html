@@ -1,0 +1,16 @@
+{% from 'components/nav.html' import Nav -%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/static/css/styles.css"/>
+    </head>
+    <body>
+        {{Nav(["Home", "Personal", "Interests", "CV", "Tech"])}}
+        <br>
+        <div class="body-content">
+        {% block body %} Base Body {% endblock %}
+        </div>
+    </body>
+</html>

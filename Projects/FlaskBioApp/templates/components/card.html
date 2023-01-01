@@ -1,0 +1,6 @@
+{% macro Card(img, title, link) -%}
+<a href={{url_for(link)}} class="card card-button">
+    <img src={{"/static/images/" + img}} width="256" height="256">
+    <h1>{{title}}</h1>
+</a>
+{% endmacro -%}
