@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2wy2f3c6blg"]
+
+[ext_resource type="Script" path="res://addons/wat/runner/test_runner.gd" id="1_b7w48"]
+[ext_resource type="Script" path="res://addons/wat/runner/network.gd" id="2_o3ygn"]
+
+[node name="TestRunner" type="Node"]
+script = ExtResource("1_b7w48")
+
+[node name="Network" type="Node" parent="."]
+script = ExtResource("2_o3ygn")

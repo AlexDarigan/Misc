@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bohcpoyrh8p7k"]
+
+[ext_resource type="Script" path="res://addons/wat/clients/gdscript/client.gd" id="1_7jtxn"]
+[ext_resource type="Script" path="res://addons/wat/clients/gdscript/results.gd" id="2_6dnxm"]
+[ext_resource type="Script" path="res://addons/wat/clients/gdscript/menu_button.gd" id="2_b0o87"]
+[ext_resource type="Script" path="res://addons/wat/clients/gdscript/network.gd" id="4_edp1i"]
+[ext_resource type="PackedScene" uid="uid://df2wy2f3c6blg" path="res://addons/wat/runner/TestRunner.tscn" id="5_6gqmm"]
+
+[node name="Client" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
+offset_right = 850.0
+offset_bottom = 265.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7jtxn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+[node name="Options" type="HBoxContainer" parent="VBoxContainer"]
+
+[node name="Run" type="Button" parent="VBoxContainer/Options"]
+text = "Run
+"
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/Options"]
+text = "Run Menu"
+script = ExtResource("2_b0o87")
+
+[node name="Results" type="Tree" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+size_flags_vertical = 3
+theme_override_constants/draw_guides = 1
+hide_root = true
+script = ExtResource("2_6dnxm")
+
+[node name="Summary" type="HBoxContainer" parent="VBoxContainer"]
+
+[node name="Label" type="Label" parent="VBoxContainer/Summary"]
+text = "Time"
+
+[node name="Network" type="Node" parent="."]
+script = ExtResource("4_edp1i")
+
+[node name="TestRunner" parent="." instance=ExtResource("5_6gqmm")]
