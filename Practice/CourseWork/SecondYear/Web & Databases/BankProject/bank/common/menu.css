@@ -1,0 +1,29 @@
+ul {
+	list-style-type: none; /* Removes any default styling */
+	
+	/* Joining Submenus to the Main Menu*/
+	margin: 0;
+	padding: 0;
+	
+	overflow: hidden; /* Prevents links from overflowing off the menu (and extends the background to cover all links) */
+	background-color:  #a3e4d7 ; /* Colors the menu using 'Morning Glory' */
+	border: 2px black solid; /* Gives a solid black border to the menu to make it stand out from the page*/
+}
+
+li {
+	float: left; /* Display links from the left so they span horizontally first */
+}
+
+li a {
+	display: block;
+	color: black; /* Non-focused links to set to black text */
+	padding: 14px 16px; /* Gives the links some padding so they don't cluster together */
+	text-decoration: none; /* Remove default underline */
+	
+}
+
+li a:hover {
+	/* Changes the background color of a link inside a list element 
+		to white when the mouse hovers over it */
+	background-color: white; 
+}

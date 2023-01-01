@@ -1,0 +1,6 @@
+class Bagel {}
+print Bagel;
+var b = Bagel();
+print b;
+b.filling = "cheese";
+print b.filling;

@@ -1,0 +1,12 @@
+class Bagel {
+    cook() {
+        print "fry until golden brown";
+    }
+}
+class Donut < Bagel {
+    cook() {
+        super.cook();
+        print "Pipe full of custard and coat with chocolate";
+    }
+}
+Donut().cook();

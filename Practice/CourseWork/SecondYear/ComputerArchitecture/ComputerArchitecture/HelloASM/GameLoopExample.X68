@@ -1,0 +1,60 @@
+    ORG    $1000
+
+START:
+
+    MOVE.B #1, $2000
+    MOVE.B $2000, D3
+
+    MOVE.B #100, $2010
+
+    CMP #1, D3
+    BNE END_GAME 
+    BRA GAME_LOOP
+
+GAME_LOOP:
+    
+    MOVE.B $2000, D3
+    CMP #1, D3
+    BNE END_GAME
+    BSR INPUT
+    BSR UPDATE
+    BSR DRAW
+    BRA GAME_LOOP
+
+INPUT:
+    MOVE.B #4,D0
+    TRAP #15
+    MOVE.B D1, $2000
+    RTS
+    
+UPDATE:
+
+    MOVE.B $2010, D4
+    SUB #10, D4
+    MOVE.B $2010, D4
+    CMP #0, D4
+    BEQ CHANGE_GSM
+    RTS
+
+DRAW:
+    RTS
+    
+CHANGE_GSM:
+    MOVE.B #0, $2000
+    BRA DRAW
+
+END_GAME:
+    LEA MESSAGE_EARTH_TOO_HOT, A1
+    MOVE.B #14, D0
+    TRAP #15
+
+    SIMHALT
+             
+MESSAGE_EARTH DC.B 'STILL FIGHTING CLIMATE CHANGE',0
+MESSAGE_EARTH_TOO_HOT DC.B 'GLOBAL TEMPERATURE RISEN TOO MUCH' ,0
+
+    END    START   
+*~Font name~Courier New~
+*~Font size~10~
+*~Tab type~1~
+*~Tab size~4~

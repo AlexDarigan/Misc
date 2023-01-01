@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://puddle_spawner/PuddleSpawner.gd" type="Script" id=1]
+[ext_resource path="res://puddle/Puddle.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 32, 32, 0, 0, 0, 0, 224, 56, 0, 0, 0, 0, 392, 144, 0, 0, 0, 0, 160, 304, 0, 0, 0, 0, 496, 288, 0, 0, 0, 0, 112, 144, 0, 0, 0, 0, 984, 568, 0, 0, 0, 0, 168, 440, 0, 0, 0, 0, 352, 624, 0, 0, 0, 0, 776, 288, 0, 0, 0, 0, 392, 392, 0, 0, 0, 0, 680, 168, 0, 0, 0, 0, 600, 72, 0, 0, 0, 0, 888, 136, 0, 0, 0, 0, 912, 352, 0, 0, 0, 0, 1112, 432, 0, 0, 0, 0, 1016, 528, 0, 0, 0, 0, 640, 584, 0, 0, 0, 0, 72, 368, 0, 0, 0, 0, 1000, 176, 0, 0, 0, 0, 112, 80, 0, 0, 0, 0, 32, 32 )
+}
+
+[node name="PuddleSpawner" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+PuddleScene = ExtResource( 2 )
+max_puddles = 5
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

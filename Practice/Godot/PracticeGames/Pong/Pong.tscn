@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Xolonium-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://paddle.gd" type="Script" id=3]
+[ext_resource path="res://Pong.gd" type="Script" id=4]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BGM.wav" type="AudioStream" id=6]
+[ext_resource path="res://Goal.ogg" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_color = Color( 0.898039, 0.0784314, 0.0784314, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2, 32 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 512, 4 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 1.5, 300 )
+
+[node name="Pong" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Center" type="ColorRect" parent="."]
+margin_left = 506.0
+margin_right = 518.0
+margin_bottom = 600.0
+
+[node name="PlayerScore" type="Label" parent="."]
+margin_left = 448.0
+margin_right = 493.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="CompScore" type="Label" parent="."]
+margin_left = 530.0
+margin_right = 575.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+
+[node name="Ball" parent="." instance=ExtResource( 5 )]
+collision_layer = 769
+collision_mask = 769
+
+[node name="PlayerPaddle" parent="." instance=ExtResource( 2 )]
+
+[node name="CompPaddle" type="KinematicBody2D" parent="."]
+position = Vector2( 1012, 280 )
+script = ExtResource( 3 )
+is_player = false
+speed = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompPaddle"]
+position = Vector2( 2, 32 )
+shape = SubResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="CompPaddle"]
+margin_right = 4.0
+margin_bottom = 64.0
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2( 512, 4 )
+shape = SubResource( 5 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 0, 592 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 512, 4 )
+shape = SubResource( 5 )
+
+[node name="PlayerGoal" type="Area2D" parent="."]
+position = Vector2( 0, 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerGoal"]
+position = Vector2( -1.5, 290 )
+shape = SubResource( 8 )
+
+[node name="CompGoal" type="Area2D" parent="."]
+position = Vector2( 1027, 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompGoal"]
+position = Vector2( -1.5, 290 )
+shape = SubResource( 8 )
+
+[node name="Origin" type="Node2D" parent="."]
+position = Vector2( 512, 300 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Goal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )

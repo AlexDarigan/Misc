@@ -1,0 +1,9 @@
+# Ignore Object and Bin files
+*
+!*/
+!*.*
+
+*.o
+*.lst
+
+!Makefile

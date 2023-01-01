@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="04e60fcb-7bc0-4078-a41c-0dd74b47efcd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CA3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20211205.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/json.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/ShopApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/CLI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/SystemDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/CartItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/GetModels.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/IModelFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/Invoice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/models/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/CartTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/Screen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/ShopTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/SummaryTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopApp/src/main/java/ie/itcarlow/ca3/screens/Table.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ClassDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ClassDiagramUMLFile.mdj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ERDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ERDiagramDrawIOFile.drawio" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27CvgCij5CkHSNpxxGJgDUMGzvE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04e60fcb-7bc0-4078-a41c-0dd74b47efcd" name="Changes" comment="" />
+      <created>1648837020791</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648837020791</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ParallaxBackground/playerShip1_blue.png" type="Texture" id=1]
+[ext_resource path="res://ParallaxBackground/purple.png" type="Texture" id=2]
+[ext_resource path="res://ParallaxBackground/spaceMeteors_001.png" type="Texture" id=3]
+[ext_resource path="res://ParallaxBackground/Ship.gd" type="Script" id=4]
+
+[node name="ParallaxBackground" type="Node2D"]
+
+[node name="Ship" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera2D" parent="Ship"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Ship"]
+follow_viewport_scale = 100000.0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Ship/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+
+[node name="Background" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -3.49998, 1.50002 )
+scale = Vector2( 3.98047, 2.34766 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 256 )
+
+[node name="SpaceMeteors001" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -311, 112 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors002" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 377, 208 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors005" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 177, 242 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors007" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 122, -188 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors008" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -447, -224 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors009" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -431, 244 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors010" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 416, 15 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors012" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -235, 235 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Ship/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="SpaceMeteors001" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -311.25, -90.25 )
+scale = Vector2( 0.653488, 0.703791 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors002" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -67.0001, 197 )
+scale = Vector2( 0.653488, 0.703791 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors003" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 219, 102 )
+scale = Vector2( 0.653488, 0.703791 )
+texture = ExtResource( 3 )
+
+[node name="SpaceMeteors004" type="Sprite" parent="Ship/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 378, -190 )
+scale = Vector2( 0.653488, 0.703791 )
+texture = ExtResource( 3 )

@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://run/run-6.png" type="Texture" id=1]
+[ext_resource path="res://run/run-5.png" type="Texture" id=2]
+[ext_resource path="res://run/run-4.png" type="Texture" id=3]
+[ext_resource path="res://run/run-7.png" type="Texture" id=4]
+[ext_resource path="res://run/run-8.png" type="Texture" id=5]
+[ext_resource path="res://run/run-2.png" type="Texture" id=6]
+[ext_resource path="res://run/run-3.png" type="Texture" id=7]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=8]
+[ext_resource path="res://run/run-1.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 337, 257 )
+scale = Vector2( 4.12, 6.24 )
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "run"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -5, 10 )
+shape = SubResource( 2 )

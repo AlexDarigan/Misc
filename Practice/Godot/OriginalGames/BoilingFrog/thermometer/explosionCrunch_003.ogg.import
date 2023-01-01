@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/explosionCrunch_003.ogg-13f947ed371f760796bf8aedbeb79fbb.oggstr"
+
+[deps]
+
+source_file="res://thermometer/explosionCrunch_003.ogg"
+dest_files=[ "res://.import/explosionCrunch_003.ogg-13f947ed371f760796bf8aedbeb79fbb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

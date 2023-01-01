@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+# Declare member variables here. Examples:
+# var a: int = 2
+# var b: String = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print(Vector2(3, 4).length())
+	print(3.0 / 5.0)
+	print(4.0 / 5.0)
+	print(Vector2(3, 4).normalized() * 1)
+	print(Vector2(3, 4)/ Vector2(3,4).length())
+	var n = Vector2(-3, -4).normalized()
+	print(-n.dot(-n))
+	
+	[-1, 1]
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Sprite
+
+
+# Declare member variables here. Examples:
+# var a: int = 2
+# var b: String = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+"
+
+[node name="Node" type="Node"]
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 126, 79 )
+texture = ExtResource( 3 )
+script = SubResource( 2 )

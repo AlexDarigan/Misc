@@ -1,0 +1,50 @@
+.App {
+  box-sizing: border-box;
+  text-align: center;
+  border: 2px black solid;
+  max-width: fit-content;
+  margin: auto;
+  margin-top: 2em;
+  padding: 20px; 
+  background-color: silver;
+}
+
+.Input {
+  box-sizing: content-box;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  padding: auto;
+  grid-column: 2;
+  grid-template-columns: 40% 40%;
+}
+
+.Display {
+  border: 2px black solid;
+  width: 700px;
+  height: 100px;
+  background-color: white;
+}
+
+.Display label {
+  display: block;
+  box-sizing: border-box;
+  font-size: xx-large;
+  height: fit-content;
+  margin: 3.4%;
+}
+
+.Panel {
+  display: grid;
+  grid-template-columns: 30fr 30fr 30fr;
+  margin: auto;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  font-size: larger;
+}
